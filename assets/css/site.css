@@ -1,0 +1,133 @@
+/* YEEF 홈페이지 전용 배치. 색·크기는 yeef_tokens.css 변수만 쓴다 */
+.logo-d{display:none}
+:root[data-theme=dark] .logo-l{display:none}:root[data-theme=dark] .logo-d{display:inline}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .logo-l{display:none}:root:not([data-theme=light]) .logo-d{display:inline}}
+.nav__logo img{height:34px;width:auto}
+
+/* 휴대폰 메뉴 */
+@media(max-width:899px){
+  .nav__links{position:absolute;left:0;right:0;top:var(--nav-height);flex-direction:column;gap:0;margin:0;padding:var(--space-2) var(--layout-gutter) var(--space-4);
+    background:var(--color-surface);border-bottom:1px solid var(--color-border);box-shadow:var(--shadow-md)}
+  .nav__links.open{display:flex}
+  .nav__links a{display:block;padding:var(--space-3) 0;border:0;font-size:var(--size-base)}
+  .nav__menu{display:inline-flex;align-items:center;justify-content:center}
+}
+
+/* 히어로 */
+.hero{padding:var(--space-7) 0 var(--space-6)}
+.hero__in{display:grid;gap:var(--space-6);align-items:center}
+@media(min-width:900px){.hero__in{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}.hero{padding:var(--space-8) 0}}
+.hero h1{font-size:var(--size-xl);line-height:1.2;font-weight:var(--weight-extrabold);letter-spacing:-.02em;margin:0}
+@media(min-width:600px){.hero h1{font-size:var(--size-2xl)}}
+@media(min-width:1100px){.hero h1{font-size:var(--size-3xl)}}
+.hero h1 em{font-style:normal;color:var(--color-primary)}
+.hero__sub{margin:var(--space-4) 0 0;color:var(--color-text-muted);font-size:var(--size-md);max-width:34em}
+.hero__cta{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+.hero__art{position:relative;display:flex;justify-content:center}
+.hero__art::before{content:"";position:absolute;inset:4% 6%;border-radius:50%;background:var(--color-surface-soft)}
+.hero__art img{position:relative;width:min(78%,360px);height:auto}
+:root[data-theme=dark] .hero__art .logo-d{display:block}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .hero__art .logo-d{display:block}}
+@media(max-width:899px){.hero__art{display:none}}
+
+.band-stats{border-block:1px solid var(--color-border);padding:var(--space-6) 0;background:var(--color-surface)}
+.section{padding:var(--space-8) 0}.section--soft{background:var(--color-surface-soft)}
+.section-sm{padding:var(--space-6) 0}
+.lede{max-width:var(--layout-prose);color:var(--color-text-muted);font-size:var(--size-md);margin:0 0 var(--space-4)}
+.h3{font-size:var(--size-lg);margin:0 0 var(--space-3)}
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-4);flex-wrap:wrap}
+.split{display:grid;gap:var(--space-6)}@media(min-width:900px){.split{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:start}}
+.fields{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:var(--space-2)}
+.fields li{display:flex;gap:var(--space-3);align-items:baseline;padding:var(--space-4);border-top:2px solid var(--color-border);font-weight:var(--weight-semibold)}
+.fields .num{font-family:var(--font-en);font-size:var(--size-sm);color:var(--color-primary)}
+
+/* 산학 */
+.sanhak{list-style:none;margin:var(--space-5) 0 0;padding:0;display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.sanhak li{border-top:3px solid var(--color-border-strong);padding-top:var(--space-3)}
+.sanhak li.now{border-color:var(--color-primary)}
+.sanhak .t{font-family:var(--font-en);font-weight:600;color:var(--color-primary);font-size:var(--size-sm)}
+.sanhak h3{margin:var(--space-1) 0 var(--space-2);font-size:var(--size-base)}
+.sanhak p{margin:0;font-size:var(--size-sm);color:var(--color-text-muted)}
+.sanhak .out{margin-top:var(--space-2);color:var(--color-text);font-weight:var(--weight-medium)}
+.sanhak--big{grid-template-columns:1fr}@media(min-width:768px){.sanhak--big{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.inquiry{margin:var(--space-7) 0 var(--space-8);padding:var(--space-6);border-radius:var(--radius-lg);background:var(--color-surface-soft);display:grid;gap:var(--space-4)}
+@media(min-width:768px){.inquiry{grid-template-columns:minmax(0,1fr) auto;align-items:center}}
+.inquiry p{margin:0;max-width:var(--layout-prose)}
+
+/* CTA 띠 */
+.cta-band{background:var(--color-primary);color:var(--color-text-on-brand);padding:var(--space-7) 0}
+.cta-band__in{display:grid;gap:var(--space-4);align-items:center}@media(min-width:768px){.cta-band__in{grid-template-columns:minmax(0,1fr) auto}}
+.cta-band h2{margin:0 0 var(--space-2);font-size:var(--size-xl)}.cta-band p{margin:0;max-width:var(--layout-prose);opacity:.92}
+.cta-band .btn{background:var(--color-surface);color:var(--color-primary)}
+
+/* 페이지 머리 */
+.page-head{padding:var(--space-7) 0 var(--space-4)}
+.page-head h1{font-size:var(--size-2xl);margin:0 0 var(--space-4)}@media(min-width:768px){.page-head h1{font-size:var(--size-3xl)}}
+
+/* 활동 */
+.acts{list-style:none;margin:var(--space-4) 0;padding:0;display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}
+.acts li{display:grid;grid-template-columns:44px 1fr;gap:var(--space-3)}
+.acts .ic{width:44px;height:44px;border-radius:var(--radius-md);background:var(--color-surface-soft);color:var(--color-primary);display:flex;align-items:center;justify-content:center}
+.acts h3{margin:0 0 var(--space-1);font-size:var(--size-base)}.acts p{margin:0;font-size:var(--size-sm);color:var(--color-text-muted)}
+
+/* 차트 */
+.two-charts{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.chart-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);min-width:0}
+.chart-card .sub,.week .sub{margin:var(--space-1) 0 var(--space-4);font-size:var(--size-sm);color:var(--color-text-muted)}
+.box{position:relative;height:280px}.box--pie{height:220px}
+.src{margin:var(--space-3) 0 0;font-size:var(--size-xs);color:var(--color-text-muted)}
+.pie{display:grid;grid-template-columns:220px 1fr;gap:var(--space-5);align-items:center}@media(max-width:560px){.pie{grid-template-columns:1fr}}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:var(--space-2)}
+.legend li{display:grid;grid-template-columns:12px 1fr auto;gap:var(--space-3);align-items:center;font-size:var(--size-sm)}
+.legend i{width:12px;height:12px;border-radius:3px}.legend b{font-family:var(--font-en)}.legend small{color:var(--color-text-muted);margin-left:var(--space-2)}
+.week{display:grid;gap:var(--space-4)}
+.wrow,.scale{display:grid;grid-template-columns:136px 1fr;gap:var(--space-3);align-items:center}
+.wrow .lab{font-size:var(--size-sm);font-weight:var(--weight-semibold)}.wrow .lab small{display:block;font-weight:400;color:var(--color-text-muted)}
+.bar{position:relative;height:36px;background:var(--color-surface-soft);border-radius:var(--radius-sm)}
+.bar span{position:absolute;inset:0 auto 0 0;border-radius:var(--radius-sm);display:flex;align-items:center;padding:0 var(--space-3);background:var(--color-primary);color:var(--color-text-on-brand);font-size:var(--size-sm);font-weight:var(--weight-semibold);white-space:nowrap}
+.bar .blend{background:repeating-linear-gradient(90deg,var(--color-primary) 0 50%,var(--teal-400) 50% 100%)}
+.scale{font-family:var(--font-en);font-size:var(--size-xs);color:var(--color-text-muted)}.scale div:last-child{display:flex;justify-content:space-between}
+.diagram{overflow-x:auto;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:#F7FAF9}
+.diagram svg{display:block;min-width:900px;width:100%;height:auto}
+
+/* 아카이브 */
+.filters{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;margin:var(--space-3) 0 var(--space-5)}
+.filters label{display:flex;align-items:center;gap:var(--space-2);font-size:var(--size-sm);font-weight:var(--weight-semibold)}
+.filters select{font:inherit;color:var(--color-text);background:var(--color-surface);border:1px solid var(--color-border-strong);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);min-height:44px}
+.filters .count{margin-left:auto;font-size:var(--size-sm);color:var(--color-text-muted)}
+.card .card__foot.off{color:var(--color-text-muted);font-weight:var(--weight-medium)}
+.empty{padding:var(--space-7) 0;text-align:center;color:var(--color-text-muted)}
+#list{padding-bottom:var(--space-8)}
+.skeleton{min-height:170px;background:linear-gradient(90deg,var(--color-surface) 0,var(--color-surface-soft) 50%,var(--color-surface) 100%);background-size:200% 100%;animation:sk 1.4s infinite linear}
+@keyframes sk{to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.skeleton{animation:none}}
+
+/* 바닥 */
+.foot{border-top:1px solid var(--color-border);padding:var(--space-7) 0 var(--space-5);background:var(--color-surface);font-size:var(--size-sm);color:var(--color-text-muted)}
+.foot__in{display:grid;gap:var(--space-5)}@media(min-width:768px){.foot__in{grid-template-columns:1fr auto}}
+.foot p{margin:var(--space-3) 0 0}.foot__links{display:flex;flex-direction:column;gap:var(--space-2)}
+.foot__copy{margin-top:var(--space-5);font-family:var(--font-en);font-size:var(--size-xs)}
+body{word-break:keep-all;overflow-wrap:anywhere}
+
+/* 카드뉴스 목록과 보기 창 */
+.posts{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));padding-bottom:var(--space-6)}
+.post{display:block;color:inherit;text-decoration:none;border-radius:var(--radius-lg)}
+.post img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--color-border);transition:transform var(--duration-base) var(--ease-out)}
+.post:hover img{transform:translateY(-3px)}
+.post__meta{display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-3)}
+.post__n{font-family:var(--font-en);font-size:var(--size-xs);color:var(--color-text-muted)}
+.post h3{margin:var(--space-2) 0 var(--space-1);font-size:var(--size-base);line-height:var(--leading-snug)}
+.post p{margin:0;font-size:var(--size-sm);color:var(--color-text-muted)}
+.post.skeleton{aspect-ratio:4/5;min-height:0}
+.viewer{border:0;padding:0;width:min(92vw,560px);max-height:96dvh;background:var(--color-bg);color:var(--color-text);border-radius:var(--radius-lg);overflow:hidden}
+.viewer::backdrop{background:rgba(15,32,27,.72)}
+.viewer__bar{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-border)}
+.viewer__bar p{margin:0;flex:1;font-weight:var(--weight-semibold);font-size:var(--size-sm);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.viewer__bar span{font-family:var(--font-en);font-size:var(--size-xs);color:var(--color-text-muted)}
+.viewer__x{width:44px;height:44px;border:0;background:none;color:var(--color-text);font-size:18px;cursor:pointer;border-radius:var(--radius-md)}
+.viewer__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;outline:none}
+.viewer__track::-webkit-scrollbar{display:none}
+.viewer__track img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;scroll-snap-align:center;background:#2F8F72}
+.viewer__nav{position:absolute;top:50%;width:44px;height:44px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-size:24px;line-height:1;cursor:pointer;transform:translateY(-50%)}
+.viewer__nav.prev{left:var(--space-2)}.viewer__nav.next{right:var(--space-2)}
+@media(hover:none){.viewer__nav{display:none}}
+@media(max-width:560px){.posts{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}.post h3{font-size:var(--size-sm)}.post p{font-size:var(--size-xs)}}

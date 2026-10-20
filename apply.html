@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>지원 · YEEF</title>
+<meta name="description" content="연세대학교 에너지환경경제학회 YEEF 신입 학회원 지원 안내와 지원서">
+<meta property="og:title" content="지원 · YEEF">
+<meta property="og:description" content="연세대학교 에너지환경경제학회 YEEF 신입 학회원 지원 안내와 지원서">
+<meta property="og:image" content="assets/img/og.png">
+<meta name="theme-color" content="#1D6B54">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/yeef_tokens.css">
+<link rel="stylesheet" href="assets/css/yeef_components.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.apply-hero{padding:var(--space-7) 0 var(--space-5)}
+.apply-hero h1{font-size:var(--size-2xl);line-height:var(--leading-tight);margin:var(--space-2) 0 var(--space-3)}
+@media(min-width:768px){.apply-hero h1{font-size:var(--size-3xl)}}
+.status{display:inline-flex;align-items:center;gap:var(--space-2);font-weight:var(--weight-semibold);font-size:var(--size-sm);padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:var(--color-surface-soft);color:var(--color-primary)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.status--closed{background:var(--color-surface);color:var(--color-text-muted);border:1px solid var(--color-border)}
+.panel{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5)}
+.two{display:grid;gap:var(--space-5)}@media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
+.kv{display:grid;grid-template-columns:7em 1fr;gap:var(--space-2) var(--space-4);margin:0}.kv dt{color:var(--color-text-muted);font-size:var(--size-sm)}.kv dd{margin:0;font-weight:var(--weight-medium)}
+@media(max-width:480px){.kv{grid-template-columns:1fr;gap:2px}.kv dd{margin-bottom:var(--space-3)}}
+.form{display:grid;gap:var(--space-6);max-width:var(--layout-prose)}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:var(--space-4)}
+legend{font-size:var(--size-lg);font-weight:var(--weight-bold);margin-bottom:var(--space-2);padding:0}
+.field{display:grid;gap:var(--space-2)}
+.field label,.q{font-weight:var(--weight-semibold)}
+.req{color:var(--color-danger);margin-left:2px}
+.help{font-size:var(--size-sm);color:var(--color-text-muted);margin:0}
+input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{font:inherit;color:var(--color-text);background:var(--color-surface);border:1px solid var(--color-border-strong);border-radius:var(--radius-md);padding:var(--space-3);min-height:44px;width:100%}
+textarea{min-height:180px;resize:vertical;line-height:var(--leading-normal)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:var(--focus-ring)}
+.row2{display:grid;gap:var(--space-4)}@media(min-width:640px){.row2{grid-template-columns:1fr 1fr}}
+.count{font-family:var(--font-en);font-size:var(--size-xs);color:var(--color-text-muted);text-align:right}.count.over{color:var(--color-danger)}
+.slots{overflow-x:auto}.slots table{border-collapse:collapse;font-size:var(--size-sm);min-width:420px}
+.slots th,.slots td{border:1px solid var(--color-border);padding:var(--space-2);text-align:center}.slots th{background:var(--color-surface-soft);font-weight:var(--weight-semibold)}
+.slots input{width:20px;height:20px;accent-color:var(--color-primary)}
+.consent{background:var(--color-surface-soft);border-radius:var(--radius-md);padding:var(--space-4);font-size:var(--size-sm)}
+.check{display:flex;gap:var(--space-2);align-items:flex-start}.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--color-primary)}
+.err{color:var(--color-danger);font-size:var(--size-sm);margin:0}
+.closed{text-align:center;padding:var(--space-8) var(--space-5)}
+.closed h2{margin:0 0 var(--space-3)}
+.preview-bar{background:var(--color-warning);color:#fff;font-size:var(--size-sm);text-align:center;padding:var(--space-2)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="nav"><div class="container">
+  <a class="nav__logo" href="index.html" aria-label="YEEF 홈"><img class="logo-l" src="assets/img/logo.svg" alt="YEEF" width="96" height="37"><img class="logo-d" src="assets/img/logo-white.svg" alt="YEEF" width="96" height="37"></a>
+  <ul class="nav__links" id="navlinks"><li><a href="about.html">소개</a></li><li><a href="activities.html">활동</a></li><li><a href="archive.html">발제 자료</a></li><li><a href="sanhak.html">산학 협력</a></li><li><a href="apply.html" aria-current="page">지원</a></li></ul>
+  <a class="btn btn--primary nav__cta" href="apply.html">지원하기</a>
+  <button class="nav__menu" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navlinks">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+</div></header>
+<main id="main" class="container">
+  <section class="apply-hero">
+    <span class="status" id="status">불러오는 중</span>
+    <h1><span id="gen">30</span>기 신입 학회원 모집</h1>
+    <p class="help" id="period"></p>
+  </section>
+
+  <section class="two">
+    <div class="panel">
+      <div class="eyebrow">Schedule</div>
+      <h2 class="h2" style="margin-bottom:var(--space-4)">일정</h2>
+      <ol class="timeline" id="tl"></ol>
+    </div>
+    <div class="panel">
+      <h2 class="h2" style="margin-bottom:var(--space-4)">안내</h2>
+      <dl class="kv">
+        <dt>정규 세션</dt><dd id="session"></dd>
+        <dt>수료 요건</dt><dd>방학 포함 2학기 활동</dd>
+        <dt>면접 구성</dt><dd>자기소개, 에너지·환경 자유주제 PT(5분 내외), 제시문 분석, 임원진 질의</dd>
+        <dt>평가 기준</dt><dd>에너지·환경 분야에 대한 관심과 이해도를 중심으로 평가합니다. 부담 없이 솔직하게 작성해 주세요.</dd>
+        <dt>지원 자격</dt><dd>연세대학교 2학년 이상 학부생·대학원생. 방학 포함 두 학기 연속 활동과 목요일 19시 정기 세션 참여가 가능해야 합니다.</dd>
+        <dt>전공</dt><dd>제한 없음. 누적 학회원 중 경제학 전공은 약 30%입니다.</dd>
+        <dt>문의</dt><dd><a id="mail" href="#"></a></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="formWrap">
+    <h2 class="h2">지원서</h2>
+
+    <div class="panel closed" id="closedBox" hidden>
+      <h2 id="closedTitle">지금은 모집 기간이 아닙니다</h2>
+      <p class="help" id="closedMsg"></p>
+      <p><a class="btn btn--secondary" href="https://www.instagram.com/yonsei_yeef/">인스타그램에서 모집 소식 확인</a></p>
+    </div>
+
+    <form class="form" id="form" novalidate hidden>
+      <div hidden aria-hidden="true"><label>website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <fieldset>
+        <legend>1. 인적사항</legend>
+        <div class="row2">
+          <div class="field"><label for="name">성명<span class="req">*</span></label><input id="name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="sid">학번<span class="req">*</span></label><input id="sid" name="sid" type="text" inputmode="numeric" placeholder="2024123456" required></div>
+          <div class="field"><label for="major">본전공<span class="req">*</span></label><input id="major" name="major" type="text" required></div>
+          <div class="field"><label for="major2">복수·융합·연계·부전공</label><input id="major2" name="major2" type="text" placeholder="없으면 비워 두세요"></div>
+          <div class="field"><label for="birth">생년월일<span class="req">*</span></label><input id="birth" name="birth" type="date" required></div>
+          <div class="field"><label for="gender">성별</label><select id="gender" name="gender"><option value="">선택 안 함</option><option>여</option><option>남</option></select></div>
+          <div class="field"><label for="tel">전화번호<span class="req">*</span></label><input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="010-0000-0000" required><p class="help">서류 결과는 문자로 안내합니다.</p></div>
+          <div class="field"><label for="email">이메일<span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field"><label for="career">희망 진로<span class="req">*</span></label><input id="career" name="career" type="text" placeholder="예: 신재생에너지 사업개발" required></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. 면접 가능 일정</legend>
+        <p class="help">참석 가능한 시간을 모두 선택해 주세요. 면접은 신촌캠퍼스에서 대면으로 진행합니다.</p>
+        <div class="slots"><table id="slots"></table></div>
+        <div class="field"><label for="slotNote">위 시간이 모두 어려운 경우 가능 일시</label><input id="slotNote" name="slotNote" type="text"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. 자기소개서</legend>
+        <div class="field">
+          <span class="q">1. 아래 키워드 중 관심 분야 1·2순위를 선택하고, 발제하고 싶은 주제를 한 문장으로 작성해 주세요.<span class="req">*</span></span>
+          <p class="help">예: [산업 공정과 기술] 포스코 HyREX 기술과 한국 산업 탈탄소의 제도 지체</p>
+          <div class="row2">
+            <div class="field"><label for="k1">1순위 키워드</label><select id="k1" name="k1" required></select></div>
+            <div class="field"><label for="k2">2순위 키워드</label><select id="k2" name="k2" required></select></div>
+          </div>
+          <div class="field"><label for="t1">1순위 주제</label><input id="t1" name="t1" type="text" required></div>
+          <div class="field"><label for="t2">2순위 주제</label><input id="t2" name="t2" type="text" required></div>
+        </div>
+        <div class="field"><label for="q2">2. 지원 동기와 YEEF 활동을 통해 얻고자 하는 바를 희망 진로와 연계해 작성해 주세요. (500자 내외)<span class="req">*</span></label><textarea id="q2" name="q2" data-max="500" required></textarea><div class="count"></div></div>
+        <div class="field"><label for="q3">3. 최근 6개월 내 접한 에너지·환경 이슈 하나를 선정해 쟁점을 분석하고 본인의 견해를 작성해 주세요.<span class="req">*</span></label><p class="help">1번 문항과 중복되어도 무방합니다. 참고한 서적·기사·칼럼을 함께 밝혀 주시면 좋습니다. 분량 제한 없음.</p><textarea id="q3" name="q3" required></textarea><div class="count"></div></div>
+        <div class="field"><label for="q4">4. 직접 조사한 자료를 근거로 독자적인 결론을 도출한 경험을 작성해 주세요. (500자 내외)<span class="req">*</span></label><textarea id="q4" name="q4" data-max="500" required></textarea><div class="count"></div></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. 개인정보 수집·이용 동의</legend>
+        <div class="consent">
+          <p style="margin-top:0">수집 항목: 성명, 학번, 전공, 생년월일, 성별, 전화번호, 이메일, 희망 진로, 지원서 답변</p>
+          <p>이용 목적: 서류 및 면접 평가, 결과 안내. 그 외 목적으로는 이용하지 않습니다.</p>
+          <p style="margin-bottom:0">보유 기간: 모집 종료 후 [확인: 기간] 경과 시 파기. 동의를 거부할 경우 지원이 제한됩니다.</p>
+        </div>
+        <label class="check"><input type="checkbox" id="agree" name="agree" required><span>위 내용을 확인했으며 개인정보 수집·이용에 동의합니다.<span class="req">*</span></span></label>
+      </fieldset>
+
+      <p class="err" id="formErr" role="alert" hidden></p>
+      <div><button class="btn btn--primary" type="submit" id="submit">지원서 제출</button></div>
+      <p class="help">제출 후에는 수정할 수 없습니다. 서류 결과는 <span id="resultDocs"></span>에 안내합니다.</p>
+    </form>
+  </section>
+</main>
+<footer class="foot">
+  <div class="container foot__in">
+    <div><img class="logo-l" src="assets/img/logo.svg" alt="YEEF" width="78" height="30"><img class="logo-d" src="assets/img/logo-white.svg" alt="YEEF" width="78" height="30">
+      <p>연세대학교 에너지환경경제학회<br>상경·경영대학 소속 · 지도교수 경영학과 김종환 교수</p></div>
+    <div class="foot__links"><a href="mailto:yeef.yonsei@gmail.com">yeef.yonsei@gmail.com</a><a href="https://www.instagram.com/yonsei_yeef/" rel="noopener">인스타그램 @yonsei_yeef</a></div>
+  </div>
+  <div class="container foot__copy">© 2011-2026 YEEF</div>
+</footer>
+<script src="assets/js/site.js"></script>
+<script>
+const DEFAULT = {"generation": 31, "term": "2027-1", "open": "", "close": "", "resultDocs": "", "interviewDays": [], "interviewSlots": ["17:00", "18:00", "19:00", "20:00", "21:00"], "resultFinal": "", "ot": "", "session": "매주 목요일 19:00~21:30, 신촌캠퍼스 강의실", "contactEmail": "yeef.yonsei@gmail.com", "endpoint": "https://script.google.com/macros/s/AKfycbzPFL7YCfH6-Fg3_MWxMxWLBM9fC41x2FHYahjFyyUzVBosik6HbqoY-eJi_GMW4WIQ/exec"};
+const KEYWORDS = ["화석연료","신재생에너지","원자력","전력계통","산업 공정과 기술","공급망 구축","기후위기와 지속가능경영","정책·법률·국제협약"];
+const $ = id => document.getElementById(id);
+const fmt = d => d.toLocaleString("ko-KR",{timeZone:"Asia/Seoul",month:"long",day:"numeric",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
+
+async function loadConfig(){
+  try{ const r = await fetch("data/recruit.json",{cache:"no-store"}); if(r.ok) return {...DEFAULT, ...(await r.json())}; }catch(e){}
+  return DEFAULT;
+}
+
+function phase(c, now){
+  // 관리자 확인용: ?preview=before|open|after
+  const p = new URLSearchParams(location.search).get("preview");
+  if(p){ $("previewBar").hidden=false; $("previewBar").textContent="관리자 미리보기: "+p+" 상태로 보는 중"; return p; }
+  if(!c.open || !c.close) return "tbd";   // 날짜 미정
+  const o=new Date(c.open), x=new Date(c.close);
+  return now<o ? "before" : now>x ? "after" : "open";
+}
+
+function render(c){
+  const o=new Date(c.open), x=new Date(c.close), st=phase(c,new Date());
+  $("gen").textContent=c.generation;
+  const T="미정";
+  const range = st==="tbd" ? "미정" : `${fmt(o)} ~ ${fmt(x)}`;
+  $("period").textContent = st==="tbd" ? "모집 일정은 확정되는 대로 이 페이지와 인스타그램에 공지합니다." : `서류 접수 ${range}`;
+  $("session").textContent=c.session;
+  $("mail").textContent=c.contactEmail; $("mail").href="mailto:"+c.contactEmail;
+  $("resultDocs").textContent=c.resultDocs||"안내드린 일정";
+  $("tl").innerHTML=[
+    ["서류 접수",range],["서류 결과",c.resultDocs||T],["대면 면접",c.interviewDays.length?c.interviewDays.join(", "):T],["최종 결과",c.resultFinal||T],["OT",c.ot||T]
+  ].map(([a,b],i)=>`<li${st==="open"&&i===0?' class="is-now"':""}><p class="timeline__what">${a}</p><p class="timeline__desc">${b}</p></li>`).join("");
+
+  const s=$("status");
+  if(st==="open"){ s.textContent="모집 중"; $("form").hidden=false; }
+  else{
+    s.textContent= st==="after" ? "모집 마감" : "모집 예정"; s.classList.add("status--closed");
+    $("closedBox").hidden=false;
+    $("closedTitle").textContent= st==="before" ? "지원서는 "+fmt(o)+"에 열립니다" : st==="tbd" ? c.generation+"기 모집 일정은 아직 확정되지 않았습니다" : c.generation+"기 모집이 마감되었습니다";
+    $("closedMsg").textContent= st==="before" ? "접수 기간 중 이 페이지에서 바로 작성할 수 있습니다." : "다음 모집 일정은 인스타그램과 이 페이지에 공지합니다.";
+  }
+
+  // 면접 시간표
+  $("slots").innerHTML="<tr><th scope='col'>시간</th>"+c.interviewDays.map(d=>`<th scope="col">${d}</th>`).join("")+"</tr>"+
+    c.interviewSlots.map(t=>`<tr><th scope="row">${t}</th>`+c.interviewDays.map(d=>`<td><input type="checkbox" name="slot" value="${d} ${t}" aria-label="${d} ${t}"></td>`).join("")+"</tr>").join("");
+  for(const id of ["k1","k2"]) $(id).innerHTML="<option value=''>선택</option>"+KEYWORDS.map(k=>`<option>${k}</option>`).join("");
+
+  // 글자 수
+  document.querySelectorAll("textarea").forEach(t=>{
+    const out=t.nextElementSibling, max=+t.dataset.max||0;
+    const upd=()=>{const n=t.value.replace(/\s/g,"").length; out.textContent=n+"자"+(max?` / ${max}자 내외 (공백 제외)`:" (공백 제외)"); out.classList.toggle("over",max&&n>max*1.2);};
+    t.addEventListener("input",upd); upd();
+  });
+
+  // 제출
+  $("form").addEventListener("submit",async e=>{
+    e.preventDefault();
+    const f=e.target, err=$("formErr"); err.hidden=true;
+    const bad=[...f.querySelectorAll("[required]")].find(i=>i.type==="checkbox"?!i.checked:!i.value.trim());
+    if(bad){ err.textContent="필수 항목을 모두 입력해 주세요."; err.hidden=false; bad.focus(); return; }
+    if(!f.querySelector("input[name=slot]:checked") && !$("slotNote").value.trim()){ err.textContent="면접 가능 시간을 하나 이상 선택해 주세요."; err.hidden=false; return; }
+    if(phase(c,new Date())!=="open" && !new URLSearchParams(location.search).get("preview")){ err.textContent="접수 기간이 종료되었습니다."; err.hidden=false; return; }
+    if(!c.endpoint){ err.textContent="아직 제출 기능이 연결되지 않았습니다. 관리자에게 문의해 주세요."; err.hidden=false; return; }
+    const data=Object.fromEntries(new FormData(f)); data.slot=[...f.querySelectorAll("input[name=slot]:checked")].map(i=>i.value);
+    const b=$("submit"); b.disabled=true; b.textContent="제출 중";
+    try{
+      // text/plain으로 보내야 Apps Script가 사전 요청 없이 받는다
+      const r=await fetch(c.endpoint,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
+      const res=await r.json();
+      if(!res.ok) throw new Error(res.error);
+      f.innerHTML=`<div class="panel closed"><h2>지원서가 접수되었습니다</h2><p class="help">${data.email}로 접수 확인 메일을 발송했습니다. 서류 결과는 ${c.resultDocs||"안내된 일정"}에 안내합니다.</p></div>`; window.scrollTo(0,f.offsetTop-80); }
+    catch(x){ err.textContent= x.message==="closed" ? "접수 기간이 종료되어 제출되지 않았습니다." : "제출에 실패했습니다. 잠시 후 다시 시도하거나 "+c.contactEmail+"로 문의해 주세요."; err.hidden=false; b.disabled=false; b.textContent="지원서 제출"; }
+  });
+}
+loadConfig().then(render);
+</script>
+</body>
+</html>

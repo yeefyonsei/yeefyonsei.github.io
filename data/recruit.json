@@ -1,0 +1,22 @@
+{
+  "_설명": "관리자만 고치는 파일. 날짜는 한국 시간(예: 2027-02-20T00:00:00+09:00). open·close가 비어 있으면 '일정 미정'으로 보인다. open~close 사이에만 지원서가 열린다.",
+  "generation": 31,
+  "term": "2027-1",
+  "open": "",
+  "close": "",
+  "resultDocs": "",
+  "interviewDays": [],
+  "interviewSlots": [
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00"
+  ],
+  "resultFinal": "",
+  "ot": "",
+  "session": "매주 목요일 19:00~21:30, 신촌캠퍼스 강의실",
+  "contactEmail": "yeef.yonsei@gmail.com",
+  "endpoint": "https://script.google.com/macros/s/AKfycbzPFL7YCfH6-Fg3_MWxMxWLBM9fC41x2FHYahjFyyUzVBosik6HbqoY-eJi_GMW4WIQ/exec",
+  "_endpoint설명": "Apps Script 웹 앱 배포 주소(https://script.google.com/macros/s/.../exec)를 넣는다"
+}
