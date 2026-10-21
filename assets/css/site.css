@@ -308,3 +308,13 @@ body{word-break:keep-all;overflow-wrap:anywhere}
 .btn{border-radius:var(--radius-full);border-color:transparent!important;box-shadow:0 1px 2px rgba(15,32,27,.08),0 4px 14px color-mix(in oklab,var(--color-primary) 22%,transparent)}
 .btn--secondary,.btn--ghost{background:var(--color-surface);box-shadow:0 1px 2px rgba(15,32,27,.06),0 4px 14px rgba(15,32,27,.08)}
 @media(prefers-color-scheme:dark){.btn{box-shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px color-mix(in oklab,var(--color-primary) 18%,transparent)}.btn--secondary,.btn--ghost{background:color-mix(in oklab,var(--color-primary) 10%,var(--color-surface));box-shadow:0 0 0 1px rgba(255,255,255,.06),0 6px 18px rgba(0,0,0,.35)}}
+
+/* 제목 글꼴: Wanted Sans, 강약 조절 */
+h1,h2,h3,.h2,.h3{font-family:'Wanted Sans',var(--font-sans)}
+.hero h1{font-weight:400;letter-spacing:-.035em;line-height:1.15}
+.hero h1 em{font-weight:800}
+.page-head h1,.apply-hero h1{font-weight:800;letter-spacing:-.035em}
+.h2,h2.h2{font-weight:750;letter-spacing:-.025em}
+.h3,h3,.acts h3{font-weight:650;letter-spacing:-.015em}
+.bus b{font-family:'Wanted Sans',var(--font-sans);font-weight:650}
+.hero__kicker{font-weight:500;letter-spacing:.01em}
