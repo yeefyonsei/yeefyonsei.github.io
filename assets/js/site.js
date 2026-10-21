@@ -11,6 +11,7 @@
   const btn=document.getElementById('menuBtn'), links=document.getElementById('navlinks');
   if(btn&&links){
     btn.addEventListener('click',()=>{const o=links.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
+    document.addEventListener('click',e=>{if(links.classList.contains('open')&&!links.contains(e.target)&&!btn.contains(e.target)){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','메뉴 열기')}});
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.focus()}});
   }
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));

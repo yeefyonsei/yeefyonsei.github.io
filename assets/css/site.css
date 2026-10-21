@@ -213,3 +213,93 @@ body{word-break:keep-all;overflow-wrap:anywhere}
 .talk__t{font-family:var(--font-en);font-weight:700;font-size:var(--size-md)}.talk__n{font-size:var(--size-sm);color:var(--color-text-muted)}
 .talk ol{margin:0 0 var(--space-5);padding:0;list-style:none;columns:2 320px;column-gap:var(--space-6)}
 .talk li{break-inside:avoid;padding:var(--space-2) 0;font-size:var(--size-sm);border-bottom:1px dashed var(--color-border)}
+
+/* ── 6차 다듬기 (격발) ───────────────────────────── */
+/* 글자색: 라이트 모드 본문을 아주 어두운 청록으로 */
+:root:not([data-theme=dark]){--color-text:#16332B}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--color-text:var(--gray-50)}}
+:root[data-theme=dark]{--color-text:var(--gray-50)}
+:root{--tint-1:color-mix(in oklab,var(--color-primary) 7%,var(--color-bg));--tint-2:color-mix(in oklab,var(--color-primary) 4%,var(--color-surface))}
+
+/* 휴대폰 메뉴: 가운데 정렬 목록 + 그라데이션 + 어두운 막 */
+@media(max-width:899px){
+  .nav__links{display:none;flex-direction:column;gap:0;padding:var(--space-3) var(--layout-gutter) var(--space-6);
+    background:linear-gradient(180deg,var(--color-surface) 0%,color-mix(in oklab,var(--color-primary) 16%,var(--color-surface)) 100%);border-bottom:0;border-radius:0 0 24px 24px}
+  .nav__links.open{display:flex;box-shadow:0 100vh 0 100vh rgba(6,20,16,.55)}
+  .nav__links a,.nav__links a[aria-current=page]{display:block;min-height:0;padding:var(--space-3) 0;border:0!important;border-radius:0;background:none;text-align:center;font-size:var(--size-lg);font-weight:var(--weight-medium);letter-spacing:-.01em;color:var(--color-text)}
+  .nav__links a[aria-current=page]{color:var(--color-primary);font-weight:var(--weight-semibold)}
+  .nav__links::after{content:"";display:block;width:40px;height:4px;border-radius:2px;margin:var(--space-3) auto 0;background:color-mix(in oklab,var(--color-primary) 45%,transparent)}
+  .nav__links li.nav__apply,.nav__cta{display:none!important}
+}
+
+/* 하위 페이지 머리: 여백 통일 + 옅은 그라데이션 */
+.page-head{padding:var(--space-5) 0 var(--space-4);background:linear-gradient(180deg,var(--color-bg) 0%,var(--tint-1) 100%);margin-inline:calc(50% - 50vw);padding-inline:calc(50vw - 50%)}
+.apply-hero{padding:var(--space-5) 0 var(--space-4)!important}
+@media(min-width:900px){.page-head{padding-top:var(--space-6);padding-bottom:var(--space-5)}.apply-hero{padding:var(--space-6) 0 var(--space-5)!important}}
+
+/* 제목 아래 설명 줄: 크기·간격 통일 */
+.page-head h1,.apply-hero h1,.section h2.h2,.section-sm h2.h2,.section-sm h2.h3{margin-bottom:var(--space-3)}
+.lede,#period{font-size:var(--size-md);color:var(--color-text-muted)}
+
+/* 메인 */
+.hero{position:relative;background:radial-gradient(70% 120% at 72% 45%,color-mix(in oklab,var(--color-primary) 10%,var(--color-bg)) 0%,var(--color-bg) 70%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(color-mix(in oklab,var(--color-primary) 35%,transparent) 1px,transparent 1.5px);background-size:22px 22px;-webkit-mask-image:radial-gradient(45% 75% at 72% 45%,#000 0%,transparent 100%);mask-image:radial-gradient(45% 75% at 72% 45%,#000 0%,transparent 100%);opacity:.5}
+.hero>.container{position:relative}
+.hero__art::before{display:none}
+.hero__kicker{opacity:.7}
+.band-stats{background:linear-gradient(180deg,var(--tint-2) 0%,color-mix(in oklab,var(--color-primary) 9%,var(--color-surface)) 100%);border-block-color:transparent}
+.stat{border-top:0;padding-top:0}
+.fields li{border-top:0;padding:var(--space-4) var(--space-4) var(--space-5)}
+
+/* 상자: 테두리 대신 옅은 그림자 */
+.chart-card,.panel,.card,.posts--mini .post{background:linear-gradient(180deg,var(--color-surface),var(--tint-2));border-color:transparent;box-shadow:0 1px 2px rgba(15,32,27,.06),0 6px 20px rgba(15,32,27,.06)}
+@media(prefers-color-scheme:dark){.chart-card,.panel,.card,.posts--mini .post{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.35)}}
+.posts--mini .post{border-radius:var(--radius-xl)}
+.post img{border:0;outline:1px solid oklch(0 0 0/.1);outline-offset:-1px}
+@media(prefers-color-scheme:dark){.post img{outline-color:oklch(1 0 0/.1)}}
+.post__meta .tag{background:none;border:0;padding:0;color:var(--color-text-muted);font-weight:var(--weight-medium)}
+
+/* 활동 카드: 아이콘 없이 */
+.acts li{grid-template-columns:1fr}.acts .ic{display:none}
+
+/* 버튼 눌림 */
+.btn{transition-property:background-color,color,scale;transition-duration:.15s}.btn:active{scale:.96}
+
+/* 푸터 */
+.foot{background:var(--teal-900);border-top:0;color:color-mix(in oklab,#fff 70%,transparent)}
+.foot a{color:var(--teal-200)}.foot .logo-l{display:none!important}.foot .logo-d{display:inline!important}
+@media(prefers-color-scheme:dark){.foot{background:color-mix(in oklab,var(--color-primary) 14%,var(--color-bg));border-top:1px solid color-mix(in oklab,var(--color-primary) 30%,transparent)}}
+
+/* 모집 일정: 서류 접수 바로가기 */
+.tl-link{color:inherit;font-size:var(--size-md);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.tl-hint{display:inline-block;padding:12px 8px;margin:-12px 0 -12px 2px;font-size:var(--size-sm);font-weight:var(--weight-medium);color:var(--color-primary);text-decoration:none}
+
+/* 개인발제 7단계: 단선결선도 */
+.sld{display:flex;align-items:flex-start;margin-top:var(--space-5)}
+.bus{min-width:0}
+.bus__name{font-size:var(--size-xs);font-weight:600;color:var(--color-primary);padding:0 0 var(--space-2) 2px}
+.bus__bar{height:4px;background:var(--color-primary);border-radius:2px}
+.bus ul{list-style:none;margin:0;padding:0;display:flex}
+.bus li{flex:1;min-width:0;padding:var(--space-5) var(--space-3) 0 0;position:relative}
+.bus li::before{content:"";position:absolute;left:10px;top:0;width:1.5px;height:var(--space-4);background:color-mix(in oklab,var(--color-primary) 60%,transparent)}
+.bus li::after{content:"";position:absolute;left:6px;top:calc(var(--space-4) - 4px);width:10px;height:10px;border-radius:50%;border:1.5px solid var(--color-primary);background:var(--color-bg)}
+.bus b{display:block;font-size:var(--size-sm)}
+.bus p{margin:2px 0 0;font-size:var(--size-xs);color:var(--color-text-muted);line-height:1.5}
+.brk{flex:none;width:22px;height:12px;margin-top:calc(var(--size-xs)*1.5 + var(--space-2) - 4px);border:1.5px solid var(--color-primary);background:var(--color-bg);border-radius:2px}
+@media(max-width:699px){
+  .sld{flex-direction:column;align-items:stretch}
+  .bus{position:relative}
+  .bus__bar{position:absolute;left:50%;top:0;bottom:0;width:4px;height:auto;transform:translateX(-50%)}
+  .bus__name{position:relative;z-index:1;text-align:center;padding:var(--space-4) 0 var(--space-2);font-size:var(--size-sm)}
+  .bus__name::before{content:"";position:absolute;left:50%;top:calc(var(--space-4) - 2px);transform:translateX(-50%);width:6.5em;height:1.6em;background:var(--color-bg);z-index:-1}
+  .bus ul{flex-direction:column}
+  .bus li{width:50%;padding:var(--space-3) 0}
+  .bus li.L{align-self:flex-start;padding-right:28px;text-align:right}
+  .bus li.R{align-self:flex-end;padding-left:28px}
+  .bus li::before{top:calc(var(--space-3) + .7em);width:22px;height:1.5px}
+  .bus li.L::before{left:auto;right:0}.bus li.R::before{left:0}
+  .bus li.L::after{left:auto;right:16px;top:calc(var(--space-3) + .7em - 5px)}
+  .bus li.R::after{left:12px;top:calc(var(--space-3) + .7em - 5px)}
+  .bus b{font-size:var(--size-base)}.bus p{font-size:var(--size-sm)}
+  .brk{align-self:center;margin:0;width:12px;height:22px;transform:translateX(2px)}
+}
