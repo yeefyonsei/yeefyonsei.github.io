@@ -332,3 +332,22 @@ h1,h2,h3,.h2,.h3{font-family:'Wanted Sans',var(--font-sans)}
 .nav__logo .logo-d{display:none}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .nav__logo .logo-l{display:none}:root:not([data-theme=light]) .nav__logo .logo-d{display:block}}
 .nav__cta{display:none!important}
+/* Alumni 세션 기록: 학기별 원장형 목록 */
+.ledger{border-top:2px solid var(--color-text)}
+.ledger__row{display:grid;gap:var(--space-2) var(--space-6);padding:var(--space-5) 0;border-bottom:1px solid var(--color-border)}
+@media(min-width:768px){.ledger__row{grid-template-columns:140px 1fr}}
+.ledger__t{margin:0;font-family:var(--font-en);font-size:var(--size-lg);font-weight:700;display:flex;align-items:baseline;gap:var(--space-2)}
+.ledger__t small{font-family:var(--font-ko,inherit);font-size:var(--size-xs);font-weight:var(--weight-medium);color:var(--color-text-muted)}
+.ledger__list{list-style:none;margin:0;padding:0;display:grid;gap:var(--space-3) var(--space-6)}
+@media(min-width:768px){.ledger__list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ledger__list li{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--space-2)}
+.ledger__list b{font-size:var(--size-sm)}
+.ledger__list span{font-size:var(--size-sm);color:var(--color-text-muted)}
+.ledger__list em{font-style:normal;font-family:var(--font-en);font-size:var(--size-xs);color:var(--color-primary);order:-1;min-width:2.6em}
+/* 산학 협력 장부형 */
+.ledger__org{font-size:var(--size-base)}
+.ledger__d{margin:var(--space-1) 0 0;font-size:var(--size-sm);color:var(--color-text-muted)}
+.ledger__out{margin:var(--space-2) 0 0;font-size:var(--size-sm);display:flex;gap:var(--space-2);align-items:baseline}
+.ledger__tag{flex:none;font-size:var(--size-xs);padding:1px 8px;border-radius:999px;border:1px solid var(--color-border-strong);color:var(--color-text-muted)}
+.badge-now{display:inline-block;margin-left:var(--space-2);font-family:var(--font-ko,inherit);font-size:var(--size-xs);font-weight:600;padding:1px 8px;border-radius:999px;background:var(--color-primary);color:var(--color-bg,#000);align-self:center}
+@media(min-width:768px){.ledger__row{grid-template-columns:190px 1fr}}.ledger__t{white-space:nowrap}
