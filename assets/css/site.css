@@ -131,3 +131,84 @@ body{word-break:keep-all;overflow-wrap:anywhere}
 .viewer__nav.prev{left:var(--space-2)}.viewer__nav.next{right:var(--space-2)}
 @media(hover:none){.viewer__nav{display:none}}
 @media(max-width:560px){.posts{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}.post h3{font-size:var(--size-sm)}.post p{font-size:var(--size-xs)}}
+
+/* 히어로 제목: 강조 단어만 굵게 */
+.hero h1{font-weight:var(--weight-medium)}
+.hero h1 em{font-weight:var(--weight-extrabold)}
+
+/* 8개 분야 설명 */
+.fields li{align-items:flex-start}.fields li b{display:block}
+.fields li p{margin:var(--space-1) 0 0;font-size:var(--size-sm);font-weight:var(--weight-regular);color:var(--color-text-muted)}
+/* 개인발제 7단계 */
+.steps{list-style:none;margin:var(--space-4) 0 var(--space-3);padding:0;display:grid;gap:var(--space-3);grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr))}
+.steps li{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-4)}
+.steps li span{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:50%;background:var(--color-surface-soft);color:var(--color-primary);font-family:var(--font-en);font-weight:700;font-size:var(--size-sm)}
+.steps li b{display:block;margin-top:var(--space-2)}.steps li p{margin:var(--space-1) 0 0;font-size:var(--size-sm);color:var(--color-text-muted)}
+.steps-key{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.steps-key span{font-size:var(--size-xs);padding:2px var(--space-3);border-radius:var(--radius-full);border:1px solid var(--color-border-strong);color:var(--color-text-muted)}
+/* Alumni 소속 */
+.chips{list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.chips li{padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);background:var(--color-surface);border:1px solid var(--color-border);font-size:var(--size-sm);font-weight:var(--weight-medium)}
+/* 개인정보처리방침 */
+.prose{max-width:var(--layout-prose);padding-bottom:var(--space-8)}.prose .h3{margin-top:var(--space-6)}
+.fields .num{flex:none;min-width:1.6em}
+
+/* 활동·산학 탭의 작은 카드뉴스 줄 */
+.posts--mini{grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));padding-bottom:0}
+.posts--mini .post{display:grid;grid-template-columns:96px 1fr;column-gap:var(--space-4);align-items:center;padding:var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface)}
+.posts--mini .post img{grid-row:1/4;border-radius:var(--radius-md)}
+.posts--mini .post__meta{margin-top:0}.posts--mini .post h3{margin:var(--space-1) 0 0}
+.posts--mini .post:hover img{transform:none}.posts--mini .post:hover{border-color:var(--color-primary)}
+@media(max-width:560px){.posts.posts--mini{grid-template-columns:1fr}}
+
+/* 모집 FAQ */
+.faq-grid{display:grid;gap:var(--space-6)}@media(min-width:900px){.faq-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}}
+.faq-group h3{font-size:var(--size-sm);color:var(--color-primary);margin:0 0 var(--space-2)}
+.faq summary{font-size:var(--size-sm)}.faq p{font-size:var(--size-sm)}
+
+/* 휴대폰 메뉴: 2열 타일 */
+@media(max-width:899px){
+  .nav__links{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-2)}
+  .nav__links.open{display:grid}
+  .nav__links a{display:flex;align-items:center;min-height:52px;padding:0 var(--space-4);border-radius:var(--radius-md);background:var(--color-surface-soft);border:0}
+  .nav__links a[aria-current=page]{background:var(--color-primary);color:var(--color-text-on-brand)}
+  .nav__links li.nav__apply{grid-column:1/-1}
+  .nav__links li.nav__apply a{justify-content:center;background:var(--color-primary);color:var(--color-text-on-brand);font-weight:var(--weight-semibold)}
+}
+@media(min-width:900px){.nav__links li.nav__apply{display:none}}
+
+/* 등장 애니메이션: 화면에 들어올 때 살짝 떠오름. 움직임 줄이기 설정이면 끔 */
+@media(prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+  .js .reveal.in{opacity:1;transform:none}
+  .hero__text>*{animation:rise .7s var(--ease-out) both}
+  .hero__text>*:nth-child(2){animation-delay:.08s}.hero__text>*:nth-child(3){animation-delay:.16s}
+  .hero__art{animation:fade 1s .2s var(--ease-out) both}
+  .viewer[open]{animation:fade .25s var(--ease-out)}
+  .nav__links.open{animation:drop .2s var(--ease-out)}
+}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Alumni 세션 목록: 학기별 카드 */
+#main .section-sm > .term{margin:0}
+.terms{display:grid;gap:var(--space-4)}@media(min-width:900px){.terms{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}}
+.term{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5)}
+.term h3{display:flex;align-items:baseline;gap:var(--space-2);margin:0 0 var(--space-3);font-size:var(--size-sm);color:var(--color-text-muted);font-weight:var(--weight-medium)}
+.term h3 span{font-family:var(--font-en);font-size:var(--size-lg);font-weight:700;color:var(--color-primary)}
+.sess{list-style:none;margin:0;padding:0}
+.sess li{display:grid;grid-template-columns:1fr auto;column-gap:var(--space-3);padding:var(--space-3) 0;border-top:1px solid var(--color-border)}
+.sess b{font-size:var(--size-sm)}.sess em{font-style:normal;font-family:var(--font-en);font-size:var(--size-xs);color:var(--color-text-muted);grid-row:1/3;grid-column:2;align-self:center}
+.sess span{font-size:var(--size-xs);color:var(--color-text-muted)}
+
+/* 역대 개인발제 주제 */
+.talks{padding-bottom:var(--space-8)}
+.talk{border-top:1px solid var(--color-border)}.talk:last-of-type{border-bottom:1px solid var(--color-border)}
+.talk summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:var(--space-3);padding:var(--space-4) 0;min-height:44px}
+.talk summary::-webkit-details-marker{display:none}
+.talk summary::after{content:"+";margin-left:auto;font-family:var(--font-en);font-size:var(--size-lg);color:var(--color-primary);transition:transform var(--duration-base) var(--ease-out)}
+.talk[open] summary::after{transform:rotate(45deg)}
+.talk__t{font-family:var(--font-en);font-weight:700;font-size:var(--size-md)}.talk__n{font-size:var(--size-sm);color:var(--color-text-muted)}
+.talk ol{margin:0 0 var(--space-5);padding:0;list-style:none;columns:2 320px;column-gap:var(--space-6)}
+.talk li{break-inside:avoid;padding:var(--space-2) 0;font-size:var(--size-sm);border-bottom:1px dashed var(--color-border)}

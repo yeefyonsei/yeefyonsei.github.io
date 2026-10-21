@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alumni · YEEF</title>
+<meta name="description" content="YEEF Alumni 세션·인터뷰 기록과 수료생 진로">
+<meta property="og:title" content="Alumni · YEEF">
+<meta property="og:description" content="YEEF Alumni 세션·인터뷰 기록과 수료생 진로">
+<meta property="og:image" content="assets/img/og.png">
+<meta name="theme-color" content="#1D6B54">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/yeef_tokens.css">
+<link rel="stylesheet" href="assets/css/yeef_components.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+<script src="assets/js/yeef_chart.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="nav"><div class="container">
+  <a class="nav__logo" href="index.html" aria-label="YEEF 홈"><img class="logo-l" src="assets/img/logo.svg" alt="YEEF" width="96" height="37"><img class="logo-d" src="assets/img/logo-white.svg" alt="YEEF" width="96" height="37"></a>
+  <ul class="nav__links" id="navlinks"><li><a href="about.html">소개</a></li><li><a href="activities.html">활동</a></li><li><a href="alumni.html" aria-current="page">Alumni</a></li><li><a href="sanhak.html">산학 협력</a></li><li><a href="archive.html">발제 자료</a></li><li><a href="apply.html">모집</a></li><li class="nav__apply"><a href="apply.html#formWrap">지원하기</a></li></ul>
+  <a class="btn btn--primary nav__cta" href="apply.html">지원하기</a>
+  <button class="nav__menu" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navlinks">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+</div></header>
+<main id="main"><div class="container">
+<section class="page-head"><h1>Alumni</h1>
+<p class="lede">수료생과 현직 선배를 초청해 산업과 직무, 진로를 듣는 Alumni 세션과 인터뷰 기록입니다.</p></section>
+<section class="section-sm"><h2 class="h3">진행한 Alumni 세션</h2><div class="terms"><section class="term"><h3><span>2026-1</span>Alumni 인터뷰 4회</h3><ul class="sess"><li><b>풀무원 한마음재단</b><span>공공정책 연구</span><em>1기</em></li><li><b>Wofford College</b><span>환경사회과학 연구·강의</span><em>3기</em></li><li><b>삼성전자</b><span>DRAM 수율 분석·개선</span><em>15기</em></li><li><b>삼성물산</b><span>미국 태양광·BESS 사업 개발</span><em>25기</em></li></ul></section><section class="term"><h3><span>2025-2</span>Alumni 인터뷰 6회</h3><ul class="sess"><li><b>기후솔루션</b><span>공적 금융·LNG 연구, 정책</span><em>12기</em></li><li><b>한국산업은행</b><span>금융·인프라</span><em>14기</em></li><li><b>포스코인터내셔널</b><span>E&P 엔지니어</span><em>15기</em></li><li><b>SK하이닉스</b><span>PKG 선행공정개발</span><em>25기</em></li><li><b>HD현대마린솔루션</b><span>해외영업</span><em>25기</em></li><li><b>한화에어로스페이스</b><span>MRO 사업전략</span><em>27기</em></li></ul></section><section class="term"><h3><span>2025-1</span>Alumni 인터뷰 5회</h3><ul class="sess"><li><b>현대모비스</b><span>회생제동 제어 로직 소프트웨어 개발</span><em>1기</em></li><li><b>LG에너지솔루션</b><span>전략·마케팅</span><em>6기</em></li><li><b>국제금융센터</b><span>조기경보부 책임연구원</span><em>6기</em></li><li><b>FuriosaAI</b><span>투자유치·사업개발</span><em>7기</em></li><li><b>코리안리</b><span>기술손사파트 손사위험팀</span><em>12기</em></li></ul></section></div></section>
+<section class="section-sm"><h2 class="h3">인터뷰</h2><p class="lede">26-1 Alumni 인터뷰 카드뉴스입니다. 표지를 누르면 카드를 넘겨 볼 수 있습니다.</p><div class="posts" id="list" aria-live="polite"><div class="post skeleton"></div></div><p class="empty" id="empty" hidden>등록된 카드뉴스가 없습니다.</p></section>
+<section class="section-sm"><div class="chart-card"><h2 class="h3">수료생의 기업·대학원·금융·공공 부문 진출</h2><p class="sub">진로가 확인된 수료생 169명 기준</p>
+  <div class="box"><canvas id="cCareer" role="img" aria-label="수료생 진로 가로 막대. 전자·제조 등 기업 41명, 대학원·연구 40명, 에너지·화학·소재 기업 30명, 금융 26명, 법조·공공 23명, 컨설팅·회계 9명"></canvas></div>
+  <p class="src">출처: YEEF 연명부(2026.09). 재학·졸업 예정·연락 불가 95명 제외</p></div></section>
+</div></main>
+<dialog class="viewer" id="viewer" aria-label="카드뉴스 보기">
+  <div class="viewer__bar"><p id="vTitle"></p><span id="vCount"></span><button class="viewer__x" id="vClose" aria-label="닫기">✕</button></div>
+  <div class="viewer__track" id="vTrack" tabindex="0"></div>
+  <button class="viewer__nav prev" id="vPrev" aria-label="이전 카드">‹</button><button class="viewer__nav next" id="vNext" aria-label="다음 카드">›</button>
+</dialog>
+<footer class="foot">
+  <div class="container foot__in">
+    <div><img class="logo-l" src="assets/img/logo.svg" alt="YEEF" width="78" height="30"><img class="logo-d" src="assets/img/logo-white.svg" alt="YEEF" width="78" height="30">
+      <p>연세대학교 에너지환경경제학회<br>상경·경영대학 소속 · 지도교수 경영학과 김종환 교수</p></div>
+    <div class="foot__links"><a href="mailto:yeef.yonsei@gmail.com">yeef.yonsei@gmail.com</a><a href="https://www.instagram.com/yonsei_yeef/" rel="noopener">인스타그램 @yonsei_yeef</a><a href="privacy.html"><b>개인정보처리방침</b></a></div>
+  </div>
+  <div class="container foot__copy">© 2011-2026 YEEF</div>
+</footer>
+<script src="assets/js/site.js"></script>
+<script>addEventListener("DOMContentLoaded",()=>YEEF_SITE.careerChart())</script><script>YEEF_SITE.archive("data/alumni.json")</script>
+</body>
+</html>
