@@ -15,7 +15,7 @@
   ],
   "resultFinal": "",
   "ot": "",
-  "session": "매주 목요일 19:00~21:30, 신촌캠퍼스 강의실",
+  "session": "매주 목요일 19:00-21:30, 신촌캠퍼스 경영관",
   "contactEmail": "yeef.yonsei@gmail.com",
   "endpoint": "https://script.google.com/macros/s/AKfycbzPFL7YCfH6-Fg3_MWxMxWLBM9fC41x2FHYahjFyyUzVBosik6HbqoY-eJi_GMW4WIQ/exec",
   "_endpoint설명": "Apps Script 웹 앱 배포 주소(https://script.google.com/macros/s/.../exec)를 넣는다"
