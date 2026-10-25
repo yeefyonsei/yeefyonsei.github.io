@@ -24,10 +24,10 @@
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="nav"><div class="container">
   <a class="nav__logo" href="index.html" aria-label="YEEF 홈"><img class="logo-l" src="assets/img/logo.svg" alt="YEEF" width="96" height="37"><img class="logo-d" src="assets/img/logo-white.svg" alt="YEEF" width="96" height="37"></a>
-  <ul class="nav__links" id="navlinks"><li><a href="about.html">소개</a></li><li><a href="activities.html" aria-current="page">활동</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="sanhak.html">산학 협력</a></li><li><a href="archive.html">발제 자료</a></li><li><a href="apply.html">모집</a></li><li class="nav__apply"><a href="apply.html#formWrap">지원하기</a></li></ul>
+  <ul class="nav__links" id="navlinks"><li><a href="about.html">소개</a></li><li><a href="activities.html" aria-current="page">활동</a></li><li><a href="archive.html">발제</a></li><li><a href="sanhak.html">산학 협력</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="apply.html">모집</a></li><li class="nav__apply"><a href="apply.html#formWrap">지원하기</a></li></ul>
   <a class="btn btn--primary nav__cta" href="apply.html">지원하기</a>
   <button class="nav__menu" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navlinks">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path class="ic-bars" d="M4 7h16M4 12h16M4 17h16"/><path class="ic-x" d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
 </div></header>
 <main id="main"><div class="container">
@@ -44,17 +44,13 @@
   <div class="chart-card"><h2 class="h3">한 학기 개인발제 32건, 8개 분야 전반 포괄</h2><p class="sub">26-1 개인발제 분야별 건수(발제자 17명)</p>
     <div class="box"><canvas id="cTopic" role="img" aria-label="26-1 개인발제 분야별 건수. 전력계통 7건, 기후위기와 지속가능경영 6건, 공급망 구축 5건, 산업 공정과 기술 5건, 원자력 3건, 신재생에너지 2건, 화석연료 2건, 정책·법률·국제협약 2건"></canvas></div>
     <p class="src">출처: 26-2 OT, YEEF 카페(여름 세션 포함)</p></div>
-  <div class="chart-card"><h2 class="h3">주당 활동 시간 약 6시간</h2><p class="sub">학기 중 주간 활동 구성</p>
-    <div class="week">
-      <div class="wrow"><div class="lab">정기 세션<small>대면</small></div><div class="bar"><span style="width:41.7%">최대 2.5시간</span></div></div>
-      <div class="wrow"><div class="lab">팀 모임<small>대면·비대면 병행</small></div><div class="bar"><span class="blend" style="width:50%">약 3시간</span></div></div>
-      <div class="scale"><div></div><div><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6시간</span></div></div>
-      <p class="sub">이 밖에 주 1회 신문 스크랩(댓글 2개 포함)과 3-4주 간격의 산학 협력 기관 미팅이 있습니다.</p>
-    </div>
+  <div class="chart-card"><h2 class="h3">주당 활동 시간 약 6시간</h2>
+    <div class="box box--week"><canvas id="cWeek" role="img" aria-label="주당 활동 시간 가로 막대. 정규 세션 2.5시간(대면), 팀 회의 최소 1시간(대면·비대면), 개인 연구·신문 스크랩 2.5시간(비대면)"></canvas></div>
+    <p class="sub">이 밖에 3-4주 간격으로 산학 협력 기관 미팅이 있습니다.</p>
     <p class="src">출처: 26-2 리크루팅 Q&amp;A, 26-2 OT</p></div>
 </section>
 
-<section class="section-sm"><h2 class="h3">한 해 운영 일정</h2><div class="diagram"><svg viewBox="0 0 1040 420" role="img" aria-labelledby="timeline-title timeline-desc" xmlns="http://www.w3.org/2000/svg">
+<section class="section-sm"><h2 class="h3">한 해 운영 일정</h2><div class="ysched-wrap"><div><h3 class="ysched__h">1학기</h3><ol class="ysched"><li><span class="ysched__m">1월</span><span class="ysched__w">학술지 발간</span></li><li><span class="ysched__m">2월</span><span class="ysched__w">수료식</span></li><li class="is-rec"><span class="ysched__m">2월</span><span class="ysched__w">1학기 리크루팅</span></li><li><span class="ysched__m">3월</span><span class="ysched__w">OT·개요발제</span></li><li><span class="ysched__m">3-6월</span><span class="ysched__w">정규 세션·개인발제</span></li><li><span class="ysched__m">7월</span><span class="ysched__w">국회 성과 발표회</span></li><li><span class="ysched__m">7-8월</span><span class="ysched__w">방학 세션</span></li></ol></div><div><h3 class="ysched__h">2학기</h3><ol class="ysched"><li><span class="ysched__m">8월</span><span class="ysched__w">수료식</span></li><li class="is-rec"><span class="ysched__m">8월</span><span class="ysched__w">2학기 리크루팅</span></li><li><span class="ysched__m">9월</span><span class="ysched__w">OT·개요발제</span></li><li><span class="ysched__m">9월-1월</span><span class="ysched__w">산학 프로젝트</span></li><li><span class="ysched__m">11월</span><span class="ysched__w">홈커밍데이</span></li></ol></div><p class="src">녹색은 리크루팅. 출처: 26-2 OT, 26-1 활동보고, 26-2 리크루팅 Q&amp;A</p></div><div class="diagram diagram--year"><svg viewBox="0 0 1040 420" role="img" aria-labelledby="timeline-title timeline-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="timeline-title">YEEF 연간 운영 타임라인</title><desc id="timeline-desc">1월부터 12월까지 리크루팅, 세션, 학회지, 홈커밍 같은 학회 운영 일정을 월 단위로 보여 준다.</desc>
 <rect width="1040" height="420" fill="#F7FAF9"/>
 <rect x="216.66666666666666" y="186" width="313.33333333333337" height="28" fill="#EEF2F0"/>
@@ -128,6 +124,6 @@
   <div class="container foot__copy">© 2011-2026 YEEF</div>
 </footer>
 <script src="assets/js/site.js"></script>
-<script>addEventListener("DOMContentLoaded",()=>YEEF_SITE.topicChart())</script><script>YEEF_SITE.archive("data/activity.json")</script>
+<script>addEventListener("DOMContentLoaded",()=>{YEEF_SITE.topicChart();YEEF_SITE.weekChart()})</script><script>YEEF_SITE.archive("data/activity.json")</script>
 </body>
 </html>

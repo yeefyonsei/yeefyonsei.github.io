@@ -56,10 +56,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--color-pr
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="nav"><div class="container">
   <a class="nav__logo" href="index.html" aria-label="YEEF 홈"><img class="logo-l" src="assets/img/logo.svg" alt="YEEF" width="96" height="37"><img class="logo-d" src="assets/img/logo-white.svg" alt="YEEF" width="96" height="37"></a>
-  <ul class="nav__links" id="navlinks"><li><a href="about.html">소개</a></li><li><a href="activities.html">활동</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="sanhak.html">산학 협력</a></li><li><a href="archive.html">발제 자료</a></li><li><a href="apply.html" aria-current="page">모집</a></li><li class="nav__apply"><a href="apply.html#formWrap">지원하기</a></li></ul>
+  <ul class="nav__links" id="navlinks"><li><a href="about.html">소개</a></li><li><a href="activities.html">활동</a></li><li><a href="archive.html">발제</a></li><li><a href="sanhak.html">산학 협력</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="apply.html" aria-current="page">모집</a></li><li class="nav__apply"><a href="apply.html#formWrap">지원하기</a></li></ul>
   <a class="btn btn--primary nav__cta" href="apply.html">지원하기</a>
   <button class="nav__menu" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navlinks">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path class="ic-bars" d="M4 7h16M4 12h16M4 17h16"/><path class="ic-x" d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
 </div></header>
 <div class="preview-bar" id="previewBar" hidden></div>
@@ -72,9 +72,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--color-pr
 
   <section class="two">
     <div class="panel">
-      <div class="eyebrow">Schedule</div>
-      <h2 class="h2" style="margin-bottom:var(--space-4)">일정</h2>
-      <ol class="timeline" id="tl"></ol>
+      <div class="eyebrow">Process</div>
+      <h2 class="h2" style="margin-bottom:var(--space-4)">선발 과정</h2>
+      <ol class="timeline" id="tl"></ol><p class="help" id="tlNote" hidden>일정 추후 공지</p>
     </div>
     <div class="panel">
       <h2 class="h2" style="margin-bottom:var(--space-4)">안내</h2>
@@ -192,13 +192,14 @@ function render(c){
   $("gen").textContent=c.generation;
   const T="미정";
   const range = (!c.open || !c.close) ? "미정" : `${fmt(o)} - ${fmt(x)}`;
-  $("period").textContent = (!c.open || !c.close) ? "모집 일정 확정 후 이 페이지와 인스타그램에 공지" : `서류 접수 ${range}`;
+  $("period").textContent = (!c.open || !c.close) ? "2027년 2-3월 선발 예정. 모집 일정 확정 후 이\u00a0페이지와 인스타그램에 공지" : `서류 접수 ${range}`;
   $("session").textContent=c.session;
   $("mail").textContent=c.contactEmail; $("mail").href="mailto:"+c.contactEmail;
   $("resultDocs").textContent=c.resultDocs||"안내드린 일정";
   $("tl").innerHTML=[
     ["서류 접수",range],["서류 결과",c.resultDocs||T],["대면 면접",c.interviewDays.length?c.interviewDays.join(", "):T],["최종 결과",c.resultFinal||T],["OT",c.ot||T]
-  ].map(([a,b],i)=>`<li${st==="open"&&i===0?' class="is-now"':""}><p class="timeline__what">${st==="open"&&i===0?`<a class="tl-link" href="#formWrap">${a}</a><a class="tl-hint" href="#formWrap">바로가기</a>`:a}</p><p class="timeline__desc">${b}</p></li>`).join("");
+  ].map(([a,b],i)=>`<li${st==="open"&&i===0?' class="is-now"':""}><p class="timeline__what">${st==="open"&&i===0?`<a class="tl-link" href="#formWrap">${a}</a><a class="tl-hint" href="#formWrap">바로가기</a>`:a}</p>${st==="tbd"?"":`<p class="timeline__desc">${b}</p>`}</li>`).join("");
+  $("tlNote").hidden = st!=="tbd";
 
   const s=$("status");
   if(st==="open"){ s.textContent="모집 중"; $("form").hidden=false; }

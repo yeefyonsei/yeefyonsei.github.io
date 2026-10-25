@@ -43,8 +43,7 @@
 
 /* 산학 */
 .sanhak{list-style:none;margin:var(--space-5) 0 0;padding:0;display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
-.sanhak li{border-top:3px solid var(--color-border-strong);padding-top:var(--space-3)}
-.sanhak li.now{border-color:var(--color-primary)}
+.sanhak li{padding-top:0}
 .sanhak .t{font-family:var(--font-en);font-weight:600;color:var(--color-primary);font-size:var(--size-sm)}
 .sanhak h3{margin:var(--space-1) 0 var(--space-2);font-size:var(--size-base)}
 .sanhak p{margin:0;font-size:var(--size-sm);color:var(--color-text-muted)}
@@ -337,7 +336,7 @@ h1,h2,h3,.h2,.h3{font-family:'Wanted Sans',var(--font-sans)}
 .ledger__row{display:grid;gap:var(--space-2) var(--space-6);padding:var(--space-5) 0;border-bottom:1px solid var(--color-border)}
 @media(min-width:768px){.ledger__row{grid-template-columns:140px 1fr}}
 .ledger__t{margin:0;font-family:var(--font-en);font-size:var(--size-lg);font-weight:700;display:flex;align-items:baseline;gap:var(--space-2)}
-.ledger__t small{font-family:var(--font-ko,inherit);font-size:var(--size-xs);font-weight:var(--weight-medium);color:var(--color-text-muted)}
+.ledger__t small{font-family:var(--font-sans);font-size:var(--size-xs);font-weight:var(--weight-medium);color:var(--color-text-muted)}
 .ledger__list{list-style:none;margin:0;padding:0;display:grid;gap:var(--space-3) var(--space-6)}
 @media(min-width:768px){.ledger__list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ledger__list li{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--space-2)}
@@ -349,5 +348,71 @@ h1,h2,h3,.h2,.h3{font-family:'Wanted Sans',var(--font-sans)}
 .ledger__d{margin:var(--space-1) 0 0;font-size:var(--size-sm);color:var(--color-text-muted)}
 .ledger__out{margin:var(--space-2) 0 0;font-size:var(--size-sm);display:flex;gap:var(--space-2);align-items:baseline}
 .ledger__tag{flex:none;font-size:var(--size-xs);padding:1px 8px;border-radius:999px;border:1px solid var(--color-border-strong);color:var(--color-text-muted)}
-.badge-now{display:inline-block;margin-left:var(--space-2);font-family:var(--font-ko,inherit);font-size:var(--size-xs);font-weight:600;padding:1px 8px;border-radius:999px;background:var(--color-primary);color:var(--color-bg,#000);align-self:center}
+.badge-now{display:inline-block;margin-left:var(--space-2);font-family:var(--font-sans);font-size:var(--size-xs);font-weight:600;padding:1px 8px;border-radius:999px;background:var(--color-primary);color:var(--color-bg,#000);align-self:center}
 @media(min-width:768px){.ledger__row{grid-template-columns:190px 1fr}}.ledger__t{white-space:nowrap}
+
+/* ── 6차 격발: 첫 화면 문단형, 모바일 다듬기 ─────────── */
+/* 첫 화면 보조 문장(숫자만 굵게) */
+.hero__sub{word-break:keep-all}
+.hero__sub b{color:var(--color-text);font-weight:var(--weight-semibold)}
+.hero__sub--stat{max-width:30em;line-height:1.9}
+.hero__sub--stat .count{display:inline-block;min-width:1.1em;text-align:right}
+.hero__sub--stat b{font-family:var(--stat-num-font);font-size:var(--size-xl);font-weight:var(--weight-bold);color:var(--stat-num-color);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hero__sub--stat b small{font-family:var(--font-sans);font-size:var(--size-md);font-weight:var(--weight-semibold);color:var(--color-text);margin-left:1px}
+@media(min-width:600px){.hero__sub--stat b{font-size:var(--size-2xl)}}
+/* 첫 화면 연구 분야 문단 */
+.intro{padding:var(--space-6) 0 var(--space-8);border-top:1px solid var(--color-border)}
+.eyebrow{margin:0 0 var(--space-2);font-size:var(--size-sm);font-weight:var(--weight-semibold);color:var(--color-text-muted);letter-spacing:.02em}
+.prose-col p{margin:0;font-size:var(--size-lg);line-height:1.65;color:var(--color-text);max-width:40em;word-break:keep-all}
+@media(min-width:900px){.prose-col p{font-size:var(--size-xl);line-height:1.6}}
+.prose-col a{color:inherit;font-weight:var(--weight-semibold);text-decoration:underline;text-decoration-color:var(--color-border-strong);text-underline-offset:.2em;text-decoration-thickness:1px}
+.prose-col a:hover{text-decoration-color:var(--color-primary);color:var(--color-primary)}
+/* 소개 페이지 연구 분야: 첫 화면 링크로 왔을 때 머리에 가리지 않게 */
+.fields li[id]{scroll-margin-top:calc(var(--nav-height) + var(--space-4))}
+.fields li:target b{color:var(--color-primary)}
+/* 페이드: 짧고 작게 */
+@media(prefers-reduced-motion:no-preference){.js .reveal{transform:translateY(8px);transition-duration:.3s}}
+/* 카드 3장은 좁은 화면에서 1열 */
+@media(max-width:560px){.posts,.posts.posts--mini{grid-template-columns:1fr}}
+/* 글자 링크 터치 영역 */
+.btn--ghost{min-height:44px;display:inline-flex;align-items:center}
+/* 휴대폰 메뉴: 아래 화면 가림막(뒤 링크 차단), 열리면 X 아이콘 */
+@media(max-width:899px){
+  .nav__links.open{box-shadow:none}
+  .nav__links.open::before{content:"";position:fixed;inset:var(--nav-height) 0 0;background:rgba(6,20,16,.45);z-index:-1}
+  /* transform을 쓰면 가림막(fixed)이 목록 안에 갇혀서, 내려오는 효과는 clip-path로 낸다 */
+  .nav__links.open{animation:none}
+}
+.nav__menu .ic-x{display:none}
+.nav__menu.is-open .ic-x{display:inline}.nav__menu.is-open .ic-bars{display:none}
+/* 활동 페이지 한 해 일정: 좁은 화면은 월별 세로 목록 */
+.ysched-wrap{display:none}
+@media(max-width:899px){.diagram--year{display:none}.ysched-wrap{display:grid;gap:var(--space-5)}}
+.ysched__h{margin:0 0 var(--space-2);font-family:var(--font-en);font-size:var(--size-sm);font-weight:600;color:var(--color-text-muted);letter-spacing:.04em}
+.ysched{list-style:none;margin:0;padding:0;border-left:2px solid var(--color-border)}
+.ysched li{position:relative;display:grid;grid-template-columns:4.2em 1fr;gap:var(--space-3);align-items:baseline;padding:var(--space-2) 0 var(--space-2) var(--space-4)}
+.ysched li::before{content:"";position:absolute;left:-6px;top:.95em;width:10px;height:10px;border-radius:50%;background:var(--color-surface);border:2px solid var(--color-text)}
+.ysched__m{font-family:var(--font-en);font-size:var(--size-sm);color:var(--color-text-muted)}
+.ysched__w{font-weight:var(--weight-medium)}
+.ysched li.is-rec::before{background:var(--color-primary);border-color:var(--color-primary)}
+.ysched li.is-rec .ysched__w{color:var(--color-primary);font-weight:var(--weight-bold)}
+/* 제목 줄바꿈: 낱말 중간에서 끊지 않는다 */
+h1,h2,h3,.h2,.h3,.lede,.sub,.chart-card .sub,.hero__kicker,.post h3{word-break:keep-all}
+.nw{white-space:nowrap}
+
+/* ── 7차 격발 ─────────────────────────────────────── */
+/* 모바일 메뉴: 위에서 아래로 펼쳐진다 */
+@media(max-width:899px) and (prefers-reduced-motion:no-preference){
+  .nav__links.open{animation:menu-down .28s var(--ease-out)}
+  .nav__links.open::before{animation:fade .28s var(--ease-out)}
+}
+@keyframes menu-down{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 -100vh 0)}}
+/* 주당 활동 시간 막대 */
+.box--week{height:200px}
+/* 운영진 조직도: 상자 없이 글자와 선만. 다크 모드에서는 글자·선 색을 바꾼다 */
+.diagram--org{overflow:visible;border:0;background:none;border-radius:0}.diagram--org svg{min-width:0;width:100%;height:auto}
+.diagram--org .org-m{display:none}
+@media(max-width:767px){.diagram--org .org-l{display:none}.diagram--org .org-m{display:block}}
+.diagram--org [fill="#0F201B"]{fill:var(--color-text)}
+.diagram--org [fill="#5B6D67"],.diagram--org [fill="#6B7E77"]{fill:var(--color-text-muted)}
+.diagram--org [stroke="#6B7E77"]{stroke:var(--color-border-strong)}

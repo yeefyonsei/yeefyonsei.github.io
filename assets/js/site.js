@@ -2,17 +2,25 @@
 (function(){
   document.documentElement.classList.add('js');
   // 화면에 들어오는 구역을 차례로 보이게 한다
-  const reveal=()=>{const els=document.querySelectorAll('main section, .acts li, .posts > *, .sanhak li, .fields li, .steps li, .stat');
+  const reveal=()=>{const els=document.querySelectorAll('main section, .acts li, .posts > *, .sanhak li, .steps li, .stat');
     if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
-    els.forEach((e,i)=>{if(e.closest('.hero'))return;e.classList.add('reveal');e.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(e)})};
+    els.forEach((e,i)=>{if(e.closest('.hero,.page-head,.intro'))return;e.classList.add('reveal');e.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(e)})};
   addEventListener('DOMContentLoaded',reveal);
+  // 메인 문장의 숫자를 0부터 올린다. 움직임 줄이기 설정이면 바로 최종값
+  const countUp=()=>{const els=document.querySelectorAll('.count[data-n]');if(!els.length)return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    const ease=x=>1-Math.pow(1-x,3);
+    els.forEach((el,i)=>{const n=+el.dataset.n,w=String(n).length,t0=performance.now()+260+i*140,dur=1000;el.textContent='0'.padStart(w,'0').replace(/^0+/,'0');
+      const tick=now=>{const p=Math.min(1,Math.max(0,(now-t0)/dur));el.textContent=Math.round(ease(p)*n).toLocaleString('ko-KR');if(p<1)requestAnimationFrame(tick)};
+      requestAnimationFrame(tick)})};
+  addEventListener('DOMContentLoaded',countUp);
   window.YEEF_REVEAL=()=>document.querySelectorAll('.posts > *:not(.reveal)').forEach(e=>e.classList.add('reveal','in'));
   const btn=document.getElementById('menuBtn'), links=document.getElementById('navlinks');
   if(btn&&links){
-    btn.addEventListener('click',()=>{const o=links.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
-    document.addEventListener('click',e=>{if(links.classList.contains('open')&&!links.contains(e.target)&&!btn.contains(e.target)){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','메뉴 열기')}});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.focus()}});
+    btn.addEventListener('click',()=>{const o=links.classList.toggle('open');btn.classList.toggle('is-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
+    document.addEventListener('click',e=>{if(links.classList.contains('open')&&(e.target===links||!links.contains(e.target))&&!btn.contains(e.target)){links.classList.remove('open');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','메뉴 열기')}});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){links.classList.remove('open');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','메뉴 열기');btn.focus()}});
   }
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const post=it=>`<a class="post" href="#${esc(it.id)}" data-id="${esc(it.id)}"><img src="${esc(it.cover)}" alt="${esc(it.title)} 카드뉴스 표지" loading="lazy" width="540" height="675">
@@ -63,6 +71,9 @@
     careerChart(){const Y=YEEF_CHART,car=[['전자·제조 등 기업',41],['대학원·연구',40],['에너지·화학·소재 기업',30],['금융',26],['법조·공공',23],['컨설팅·회계',9]];
       new Chart(cCareer,{type:'bar',data:{labels:car.map(c=>c[0]),datasets:[{data:car.map(c=>c[1]),backgroundColor:Y.highlight()}]},
         options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:'명'}},y:{grid:{display:false}}}}})},
+    weekChart(){const Y=YEEF_CHART,s=Y.series(),w=[[['정규 세션','대면'],2.5,s[0]],[['팀 회의','대면·비대면'],1,Y.sequential[2]],[['개인 연구·신문 스크랩','비대면'],2.5,s[1]]];
+      new Chart(cWeek,{type:'bar',data:{labels:w.map(x=>x[0]),datasets:[{data:w.map(x=>x[1]),backgroundColor:w.map(x=>x[2])}]},
+        options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>c[0].label.replace(',',' · '),label:c=>` ${c.dataIndex===1?'최소 ':''}${c.raw}시간`}}},scales:{x:{beginAtZero:true,max:3,ticks:{stepSize:1},title:{display:true,text:'시간'}},y:{grid:{display:false}}}}})},
     topicChart(){const Y=YEEF_CHART,t=[['전력계통',7],['기후위기와 지속가능경영',6],['공급망 구축',5],['산업 공정과 기술',5],['원자력',3],['신재생에너지',2],['화석연료',2],['정책·법률·국제협약',2]];
       new Chart(cTopic,{type:'bar',data:{labels:t.map(x=>x[0]),datasets:[{data:t.map(x=>x[1]),backgroundColor:Y.highlight()}]},
         options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:2},title:{display:true,text:'건'}},y:{grid:{display:false}}}}})}
