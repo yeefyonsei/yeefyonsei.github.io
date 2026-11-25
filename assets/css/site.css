@@ -177,17 +177,11 @@ body{word-break:keep-all;overflow-wrap:anywhere}
 }
 @media(min-width:900px){.nav__links li.nav__apply{display:none}}
 
-/* 등장 애니메이션: 화면에 들어올 때 살짝 떠오름. 움직임 줄이기 설정이면 끔 */
+/* 움직임: 보기창 열림, 메뉴 열림만. 움직임 줄이기 설정이면 끔 */
 @media(prefers-reduced-motion:no-preference){
-  .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
-  .js .reveal.in{opacity:1;transform:none}
-  .hero__text>*{animation:rise .7s var(--ease-out) both}
-  .hero__text>*:nth-child(2){animation-delay:.08s}.hero__text>*:nth-child(3){animation-delay:.16s}
-  .hero__art{animation:fade 1s .2s var(--ease-out) both}
   .viewer[open]{animation:fade .25s var(--ease-out)}
   .nav__links.open{animation:drop .2s var(--ease-out)}
 }
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 
@@ -370,7 +364,6 @@ h1,h2,h3,.h2,.h3{font-family:'Wanted Sans',var(--font-sans)}
 .fields li[id]{scroll-margin-top:calc(var(--nav-height) + var(--space-4))}
 .fields li:target b{color:var(--color-primary)}
 /* 페이드: 짧고 작게 */
-@media(prefers-reduced-motion:no-preference){.js .reveal{transform:translateY(8px);transition-duration:.3s}}
 /* 카드 3장은 좁은 화면에서 1열 */
 @media(max-width:560px){.posts,.posts.posts--mini{grid-template-columns:1fr}}
 /* 글자 링크 터치 영역 */
@@ -513,3 +506,34 @@ body .timeline li::before{content:counter(step) ".";counter-increment:step;width
 /* 12차 격발: 연구 분야 문단을 본문 크기로 */
 body .prose-col p{font-size:18px;line-height:1.7;max-width:40em}
 @media(max-width:640px){body .prose-col p{font-size:16px}}
+
+/* 13차 격발: 학회 소개 쪽(intro.html) */
+.hero--intro .hero__kicker{margin:0 0 var(--space-3);font-size:var(--size-sm);color:var(--color-text)}
+body .hero--intro .hero__sub{max-width:36em;white-space:normal;font-size:var(--size-lg);margin-left:auto;margin-right:auto}
+.hero--logo .hero__links{display:flex;flex-wrap:wrap;justify-content:center;gap:.3em .7em}
+.hero--logo .hero__links a{white-space:nowrap}
+.prose{max-width:40em;font-size:var(--size-md);line-height:1.8;word-break:keep-all;text-wrap:pretty}
+.prose p{margin:0 0 var(--space-4)}
+.prose a{text-decoration:underline;text-underline-offset:.2em}
+table.tbl{width:100%;max-width:56em;border-collapse:collapse;border-top:2px solid var(--color-text);border-bottom:2px solid var(--color-text);font-size:var(--size-md);word-break:keep-all}
+table.tbl th,table.tbl td{text-align:left;padding:.65em .5em;vertical-align:top;border-bottom:1px solid var(--color-border)}
+table.tbl th{font-weight:650}
+table.tbl tr:last-child td{border-bottom:0}
+table.tbl td:first-child{width:9em}
+.tbl--4 td:first-child{width:7.5em}.tbl--4 td:nth-child(2){width:11em}.tbl--4 td:nth-child(3){width:30%}
+.hero--intro~.section h2.h2{margin-bottom:var(--space-5)}
+.contact p{margin:0 0 var(--space-2)}
+@media(max-width:600px){
+  body .hero--intro .hero__sub{font-size:15px}
+  table.tbl{font-size:var(--size-sm)}
+  table.tbl td:first-child{width:5em;padding-left:0}
+  table.tbl th:nth-child(2),table.tbl td:nth-child(2){width:7.5em}
+  .tbl--4 th:nth-child(4),.tbl--4 td:nth-child(4){display:none}
+  .tbl--4 td:first-child{width:5em}.tbl--4 td:nth-child(2){width:6.5em}.tbl--4 td:nth-child(3){width:auto}
+}
+/* 13차 격발: 첫 화면 바로가기 밑줄만 처음 한 번 왼쪽에서 그어짐, 올리면 2px */
+body .hero--logo .hero__links a{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-size:0 1px;background-position:0 100%;padding-bottom:1px;animation:ul .35s ease-out forwards}
+body .hero--logo .hero__links a:nth-of-type(2){animation-delay:.15s}body .hero--logo .hero__links a:nth-of-type(3){animation-delay:.3s}body .hero--logo .hero__links a:nth-of-type(4){animation-delay:.45s}
+body .hero--logo .hero__links a:hover{animation:none;background-size:100% 2px}
+@keyframes ul{to{background-size:100% 1px}}
+@media(prefers-reduced-motion:reduce){body .hero--logo .hero__links a{background-size:100% 1px;animation:none}}

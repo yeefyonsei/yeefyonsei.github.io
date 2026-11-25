@@ -1,21 +1,9 @@
 // YEEF 홈페이지 공통 동작: 휴대폰 메뉴, 최근 발제, 아카이브 거르기, 차트
 (function(){
   document.documentElement.classList.add('js');
-  // 화면에 들어오는 구역을 차례로 보이게 한다
-  const reveal=()=>{const els=document.querySelectorAll('main section, .acts li, .posts > *, .sanhak li, .steps li, .stat');
-    if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
-    els.forEach((e,i)=>{if(e.closest('.hero,.page-head,.intro'))return;e.classList.add('reveal');e.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(e)})};
-  addEventListener('DOMContentLoaded',reveal);
-  // 메인 문장의 숫자를 0부터 올린다. 움직임 줄이기 설정이면 바로 최종값
-  const countUp=()=>{const els=document.querySelectorAll('.count[data-n]');if(!els.length)return;
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    const ease=x=>1-Math.pow(1-x,3);
-    els.forEach((el,i)=>{const n=+el.dataset.n,w=String(n).length,t0=performance.now()+260+i*140,dur=1000;el.textContent='0'.padStart(w,'0').replace(/^0+/,'0');
-      const tick=now=>{const p=Math.min(1,Math.max(0,(now-t0)/dur));el.textContent=Math.round(ease(p)*n).toLocaleString('ko-KR');if(p<1)requestAnimationFrame(tick)};
-      requestAnimationFrame(tick)})};
-  addEventListener('DOMContentLoaded',countUp);
-  window.YEEF_REVEAL=()=>document.querySelectorAll('.posts > *:not(.reveal)').forEach(e=>e.classList.add('reveal','in'));
+  // 숫자는 최종값을 바로 넣는다(등장 동작 없음)
+  addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.count[data-n]').forEach(el=>{el.textContent=(+el.dataset.n).toLocaleString('ko-KR')}));
+  window.YEEF_REVEAL=()=>{};
   const btn=document.getElementById('menuBtn'), links=document.getElementById('navlinks');
   if(btn&&links){
     btn.addEventListener('click',()=>{const o=links.classList.toggle('open');btn.classList.toggle('is-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
