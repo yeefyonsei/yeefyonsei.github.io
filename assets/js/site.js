@@ -7,6 +7,9 @@
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
     els.forEach((e,i)=>{if(e.closest('.hero,.page-head,.intro'))return;e.classList.add('reveal');e.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(e)})};
   addEventListener('DOMContentLoaded',reveal);
+  // 첫 화면: 큰 로고가 보이는 동안 상단바 로고를 숨긴다
+  addEventListener('DOMContentLoaded',()=>{const hs=[...document.querySelectorAll('.hero__logo')],nav=document.querySelector('.nav');if(!hs.length||!nav)return;
+    const upd=()=>{const h=hs.find(e=>e.offsetParent);nav.classList.toggle('is-top',!!h&&h.getBoundingClientRect().bottom>nav.offsetHeight)};upd();addEventListener('scroll',upd,{passive:true})});
   // 메인 문장의 숫자를 0부터 올린다. 움직임 줄이기 설정이면 바로 최종값
   const countUp=()=>{const els=document.querySelectorAll('.count[data-n]');if(!els.length)return;
     if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;

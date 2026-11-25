@@ -416,3 +416,30 @@ h1,h2,h3,.h2,.h3,.lede,.sub,.chart-card .sub,.hero__kicker,.post h3{word-break:k
 .diagram--org [fill="#0F201B"]{fill:var(--color-text)}
 .diagram--org [fill="#5B6D67"],.diagram--org [fill="#6B7E77"]{fill:var(--color-text-muted)}
 .diagram--org [stroke="#6B7E77"]{stroke:var(--color-border-strong)}
+
+/* ── 10차 격발 ─────────────────────────────────────── */
+/* 첫 화면: 가운데 로고 + 한 줄 문장 + 캡슐 두 개 */
+.hero--logo{padding:var(--space-9,96px) 0 var(--space-8)}
+.hero--logo .hero__in{display:block}
+.hero--logo .hero__text{display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero__logo{width:min(60vw,380px);height:auto}
+.hero--logo .logo-d{display:none}
+:root[data-theme=dark] .hero--logo .logo-l{display:none}:root[data-theme=dark] .hero--logo .logo-d{display:block}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .hero--logo .logo-l{display:none}:root:not([data-theme=light]) .hero--logo .logo-d{display:block}}
+.hero--logo .hero__sub{max-width:none;white-space:nowrap;margin-top:var(--space-6);font-size:clamp(11px,1.3vw,18px)}
+@media(max-width:599px){.hero--logo .hero__sub{white-space:normal;font-size:13px;max-width:none;line-height:1.7}.hero--logo .hero__sub--stat b{font-size:var(--size-lg)}.hero--logo .hero__sub--stat b small{font-size:13px}}
+.hero--logo .hero__cta{justify-content:center;margin-top:var(--space-6)}
+.hero--logo .hero__cta .btn{border-radius:999px}
+/* 첫 화면 맨 위에서는 상단바 로고를 숨겼다가 스크롤하면 보인다 */
+.nav__logo{transition:opacity .2s var(--ease-out)}
+.nav.is-top .nav__logo{opacity:0;pointer-events:none}
+/* 여러 줄 설명: 줄마다 한 문장, 줄 안에서는 자연 줄바꿈만 */
+.lines{max-width:var(--layout-prose);color:var(--color-text-muted);font-size:var(--size-md);margin:0 0 var(--space-4)}
+.lines p{margin:0;word-break:keep-all}.lines p.gap{margin-top:var(--space-4)}
+.prose-col p+p{margin-top:var(--space-1)}
+.cta-band p+p{margin-top:var(--space-1)}
+/* 산학 소개: 과제·진행·성과 라벨을 앞에 둔 표 */
+.sh-rows{margin:var(--space-2) 0 0;display:grid;gap:var(--space-1)}
+.sh-rows div{display:grid;grid-template-columns:2.6em 1fr;gap:var(--space-2);align-items:baseline}
+.sh-rows dt{font-size:var(--size-xs);color:var(--color-text-muted);font-weight:var(--weight-semibold)}
+.sh-rows dd{margin:0;font-size:var(--size-sm);word-break:keep-all}
