@@ -510,3 +510,6 @@ body .timeline li::before{content:counter(step) ".";counter-increment:step;width
 .mbar__leg i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
 /* 조직도 보조글도 본문색 */
 .diagram--org [fill="#5B6D67"],.diagram--org [fill="#6B7E77"]{fill:var(--color-text)}
+/* 12차 격발: 연구 분야 문단을 본문 크기로 */
+body .prose-col p{font-size:18px;line-height:1.7;max-width:40em}
+@media(max-width:640px){body .prose-col p{font-size:16px}}
