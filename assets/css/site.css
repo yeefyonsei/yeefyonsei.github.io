@@ -265,9 +265,8 @@ body{word-break:keep-all;overflow-wrap:anywhere}
 .btn{transition-property:background-color,color,scale;transition-duration:.15s}.btn:active{scale:.96}
 
 /* 푸터 */
-.foot{background:var(--teal-900);border-top:0;color:color-mix(in oklab,var(--gray-0) 70%,transparent)}
-.foot a{color:var(--teal-200)}.foot .logo-l{display:none!important}.foot .logo-d{display:inline!important}
-@media(prefers-color-scheme:dark){.foot{background:color-mix(in oklab,var(--color-primary) 14%,var(--color-bg));border-top:1px solid color-mix(in oklab,var(--color-primary) 30%,transparent)}}
+.foot{background:var(--color-surface-soft);border-top:0;color:var(--color-text)}
+.foot a{color:var(--color-text)}
 
 /* 모집 일정: 서류 접수 바로가기 */
 .tl-link{color:inherit;font-size:var(--size-md);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
@@ -304,7 +303,7 @@ body{word-break:keep-all;overflow-wrap:anywhere}
 }
 
 /* 버튼: 알약형 + 테두리 대신 은은한 그림자 */
-.btn{border-radius:var(--radius-full);border-color:transparent!important;box-shadow:var(--shadow-btn-base),0 4px 14px color-mix(in oklab,var(--color-primary) 22%,transparent)}
+.btn{border-radius:var(--radius-full);border-color:transparent;box-shadow:var(--shadow-btn-base),0 4px 14px color-mix(in oklab,var(--color-primary) 22%,transparent)}
 .btn--secondary,.btn--ghost{background:var(--color-surface);box-shadow:var(--shadow-btn-soft)}
 @media(prefers-color-scheme:dark){.btn{box-shadow:var(--shadow-btn-base-dark),0 6px 18px color-mix(in oklab,var(--color-primary) 18%,transparent)}.btn--secondary,.btn--ghost{background:color-mix(in oklab,var(--color-primary) 10%,var(--color-surface));box-shadow:var(--shadow-btn-soft-dark)}}
 
@@ -428,11 +427,6 @@ h1,h2,h3,.h2,.h3,.lede,.sub,.chart-card .sub,.hero__kicker,.post h3{word-break:k
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .hero--logo .logo-l{display:none}:root:not([data-theme=light]) .hero--logo .logo-d{display:block}}
 .hero--logo .hero__sub{max-width:none;white-space:nowrap;margin-top:var(--space-6);font-size:clamp(11px,1.3vw,18px)}
 @media(max-width:599px){.hero--logo .hero__sub{white-space:normal;font-size:13px;max-width:none;line-height:1.7}.hero--logo .hero__sub--stat b{font-size:var(--size-lg)}.hero--logo .hero__sub--stat b small{font-size:13px}}
-.hero--logo .hero__cta{justify-content:center;margin-top:var(--space-6)}
-.hero--logo .hero__cta .btn{border-radius:999px}
-/* 첫 화면 맨 위에서는 상단바 로고를 숨겼다가 스크롤하면 보인다 */
-.nav__logo{transition:opacity .2s var(--ease-out)}
-.nav.is-top .nav__logo{opacity:0;pointer-events:none}
 /* 여러 줄 설명: 줄마다 한 문장, 줄 안에서는 자연 줄바꿈만 */
 .lines{max-width:var(--layout-prose);color:var(--color-text-muted);font-size:var(--size-md);margin:0 0 var(--space-4)}
 .lines p{margin:0;word-break:keep-all}.lines p.gap{margin-top:var(--space-4)}
@@ -443,3 +437,76 @@ h1,h2,h3,.h2,.h3,.lede,.sub,.chart-card .sub,.hero__kicker,.post h3{word-break:k
 .sh-rows div{display:grid;grid-template-columns:2.6em 1fr;gap:var(--space-2);align-items:baseline}
 .sh-rows dt{font-size:var(--size-xs);color:var(--color-text-muted);font-weight:var(--weight-semibold)}
 .sh-rows dd{margin:0;font-size:var(--size-sm);word-break:keep-all}
+
+/* ── 11차 격발: 선이 구조를 맡는 평면 디자인 ─────────── */
+/* 첫 화면: 글자 로고 + 회색 한 줄 + 밑줄 링크 */
+.hero,.hero--logo{background:none}.hero::before,.hero::after{display:none}
+.wm{display:flex;align-items:center;gap:.6em;margin:0;color:var(--color-text);line-height:1.02}
+.wm__y{font-family:'Wanted Sans',var(--font-sans);font-weight:800;font-size:clamp(64px,9vw,112px);letter-spacing:-.03em}
+.wm__t{font-family:'Wanted Sans',var(--font-sans);font-weight:500;font-size:clamp(13px,1.6vw,22px);letter-spacing:.01em;line-height:1.15;text-align:left}
+@media(max-width:599px){.wm{flex-direction:column;gap:.3em}.wm__t{text-align:center;font-size:14px}}
+.hero--logo .hero__sub{font-size:var(--size-lg);color:var(--color-text-muted);margin-top:var(--space-6);line-height:1.6}
+@media(max-width:599px){.hero--logo .hero__sub{font-size:13px}}
+.hero__links{margin:var(--space-6) 0 0;display:flex;gap:var(--space-3);align-items:center;font-size:var(--size-sm);color:var(--color-text-muted)}
+.hero__links a{color:var(--color-text-muted);text-decoration:underline;text-underline-offset:.25em;text-decoration-color:var(--color-border-strong);display:inline-flex;align-items:center;min-height:44px}
+.hero__links a:hover{color:var(--color-primary);text-decoration-color:var(--color-primary)}
+/* 색면 대신 위쪽 1px 선 */
+.cta-band{background:none;color:var(--color-text);border-top:1px solid var(--color-border)}
+.cta-band p{opacity:1}
+.section--soft{background:none;border-top:1px solid var(--color-border)}
+/* 서체 하나, 영문 장식 라벨·넓은 자간 없음 */
+.eyebrow,.ledger__t,.talk__t,.stat__num,.num,.fields .num,.sanhak .t,.post__meta,.foot__copy,.timeline__when,.ysched__m,.ysched__h{font-family:var(--font-sans);letter-spacing:0;text-transform:none}
+/* 회색 보조글은 본문색, 출처는 작은 크기로만 구분 */
+.lede,#period,.lines,.sub,.chart-card .sub,.src,.post p,.post__meta .tag,.acts p,.bus p,.sanhak p,.ledger__d,.ledger__list span,.sh-rows dt,.legend small,.fields li p,.foot{color:var(--color-text)}
+body .help,body .timeline__desc{color:var(--color-text)}
+.src{font-size:var(--size-sm)}
+.post__n{display:none}
+/* 카드·상자: 배경·테두리·그림자·모서리 없이, 위쪽 선으로만 나눈다 */
+body .chart-card,body .panel,body .card,body .inquiry,.posts--mini .post{background:none;border:0;box-shadow:none;border-radius:0;padding-left:0;padding-right:0}
+body .chart-card,body .panel,body .inquiry{border-top:1px solid var(--color-border);padding-top:var(--space-5)}
+.box{background:none;border:0;box-shadow:none}
+.diagram{background:none;border:0;border-radius:0}
+.post img{border:0;outline:0;border-radius:var(--radius-sm)}
+.post:hover img,a.card:hover{transform:none}
+/* 버튼은 밑줄 글자 링크 하나로 */
+body .btn,body .cta-band .btn,body .band .btn{background:none;color:var(--color-text);border:0;border-radius:0;padding:0;min-height:44px;box-shadow:none;text-decoration:underline;text-underline-offset:.25em;text-decoration-color:var(--color-border-strong);font-weight:var(--weight-semibold);justify-content:flex-start}
+body .btn:hover{background:none;color:var(--color-primary);text-decoration-color:var(--color-primary)}
+.cta-band__in{grid-template-columns:1fr;gap:var(--space-2)}
+/* 배지·상태·선발 과정: 점·알약 대신 글자와 번호 */
+.badge-now{background:none;border:0;padding:0;border-radius:0;color:var(--color-primary);font-weight:var(--weight-semibold)}
+.badge-now::before{content:"· "}
+body .status{background:none;border:0;padding:0;border-radius:0;color:var(--color-primary);font-weight:var(--weight-semibold)}
+body .status::before{display:none}
+body .timeline{border-left:0;counter-reset:step}
+body .timeline li{padding-left:1.8em}
+body .timeline li::before{content:counter(step) ".";counter-increment:step;width:auto;height:auto;border:0;border-radius:0;background:none;left:0;top:0;font-weight:var(--weight-semibold);color:var(--color-text)}
+.tag{background:none;border:0;padding:0}
+.ledger__tag{border:0;padding:0;border-radius:0}
+/* 개인발제 7단계: 원 단자 대신 번호 */
+.sld{counter-reset:st}
+.bus li{counter-increment:st}
+.bus li::after{content:counter(st);width:auto;height:auto;border:0;border-radius:0;background:var(--color-bg);top:calc(var(--space-4) - .55em);left:5px;padding:0 2px;font-size:var(--size-xs);font-weight:var(--weight-bold);color:var(--color-primary);line-height:1}
+.brk{width:1.5px;height:12px;border:0;border-radius:0;background:var(--color-primary)}
+@media(max-width:699px){.bus li.L::after{right:14px}.bus li.R::after{left:10px}.brk{width:12px;height:1.5px}}
+/* 모바일 운영 일정 목록: 점 대신 가는 눈금 */
+.ysched li::before{width:8px;height:1.5px;border:0;border-radius:0;left:-2px;top:.85em;background:var(--color-text)}
+.ysched li.is-rec::before{background:var(--color-primary)}
+/* 데스크톱 운영 일정 SVG */
+.diagram--year svg{min-width:900px}
+.diagram--year text{font-family:var(--font-sans);font-size:13px;fill:var(--color-text)}
+.diagram--year .y-ax{stroke:var(--color-text);stroke-width:1}
+.diagram--year .y-tk{stroke:var(--color-border-strong);stroke-width:1}
+.diagram--year .y-ev{stroke:var(--color-border-strong);stroke-width:1}
+.diagram--year .y-ev.rec{stroke:var(--color-primary)}
+.diagram--year .y-t.rec{fill:var(--color-primary);font-weight:700}
+.diagram--year .y-n{font-weight:700}
+.diagram--year .y-t{paint-order:stroke;stroke:var(--color-bg);stroke-width:6px;stroke-linejoin:round}
+.diagram--year .y-m{font-size:12px}
+.diagram--year .y-s{font-size:12px;font-weight:600}
+/* 소개 전공 분포: 분할 막대 한 줄 */
+.mbar{display:flex;height:28px;overflow:hidden;margin:var(--space-4) 0 var(--space-2)}
+.mbar i{display:block;height:100%}
+.mbar__leg{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);font-size:var(--size-sm)}
+.mbar__leg i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+/* 조직도 보조글도 본문색 */
+.diagram--org [fill="#5B6D67"],.diagram--org [fill="#6B7E77"]{fill:var(--color-text)}

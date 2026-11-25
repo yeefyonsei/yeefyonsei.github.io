@@ -7,9 +7,6 @@
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
     els.forEach((e,i)=>{if(e.closest('.hero,.page-head,.intro'))return;e.classList.add('reveal');e.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(e)})};
   addEventListener('DOMContentLoaded',reveal);
-  // 첫 화면: 큰 로고가 보이는 동안 상단바 로고를 숨긴다
-  addEventListener('DOMContentLoaded',()=>{const hs=[...document.querySelectorAll('.hero__logo')],nav=document.querySelector('.nav');if(!hs.length||!nav)return;
-    const upd=()=>{const h=hs.find(e=>e.offsetParent);nav.classList.toggle('is-top',!!h&&h.getBoundingClientRect().bottom>nav.offsetHeight)};upd();addEventListener('scroll',upd,{passive:true})});
   // 메인 문장의 숫자를 0부터 올린다. 움직임 줄이기 설정이면 바로 최종값
   const countUp=()=>{const els=document.querySelectorAll('.count[data-n]');if(!els.length)return;
     if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -65,16 +62,15 @@
         if(location.hash) open(decodeURIComponent(location.hash.slice(1)));
       }).catch(()=>fail(el));
     },
-    majorChart(){const Y=YEEF_CHART,maj=[['상경·경영',100],['공학',68],['사회과학',37],['자연과학',29],['인문',20],['융합',18]];
-      const dark=getComputedStyle(document.documentElement).getPropertyValue('--color-bg').trim().toLowerCase()==='#0f201b';
-      const pc=[...Y.series(),dark?'#D6E36E':'#7E8E08',Y.other()];
-      new Chart(cMajor,{type:'doughnut',data:{labels:maj.map(m=>m[0]),datasets:[{data:maj.map(m=>m[1]),backgroundColor:pc,borderColor:getComputedStyle(document.documentElement).getPropertyValue('--color-surface').trim(),borderWidth:2}]},
-        options:{cutout:'55%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.label} ${c.raw}명 (${Math.round(c.raw/272*100)}%)`}}}}});
-      lMajor.innerHTML=maj.map((m,i)=>`<li><i style="background:${pc[i]}"></i><span>${m[0]}</span><span><b>${Math.round(m[1]/272*100)}%</b><small>${m[1]}명</small></span></li>`).join('')},
+    // 전공 분포: 분할 막대 한 줄 + 범례(이름 %, 명). 색은 청록 농도
+    majorChart(){const maj=[['상경·경영',100],['공학',68],['사회과학',37],['자연과학',29],['인문',20],['융합',18]],tot=272,
+      teal=['#1D6B54','#48A78F','#8FC9B5','#C5E2D8','#E3F1EC','#B4C2BD'];
+      bMajor.innerHTML=maj.map((m,i)=>`<i style="width:${m[1]/tot*100}%;background:${teal[i]}"></i>`).join('');
+      lMajor.innerHTML=maj.map((m,i)=>`<li><i style="background:${teal[i]}"></i>${m[0]} <b>${Math.round(m[1]/tot*100)}%</b> ${m[1]}명</li>`).join('')},
     careerChart(){const Y=YEEF_CHART,car=[['전자·제조 등 기업',41],['대학원·연구',40],['에너지·화학·소재 기업',30],['금융',26],['법조·공공',23],['컨설팅·회계',9]];
       new Chart(cCareer,{type:'bar',data:{labels:car.map(c=>c[0]),datasets:[{data:car.map(c=>c[1]),backgroundColor:Y.highlight()}]},
         options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:'명'}},y:{grid:{display:false}}}}})},
-    weekChart(){const Y=YEEF_CHART,s=Y.series(),w=[[['정규 세션','대면'],2.5,s[0]],[['팀 회의','대면·비대면'],1,Y.sequential[2]],[['개인 연구·신문 스크랩','비대면'],2.5,s[1]]];
+    weekChart(){const Y=YEEF_CHART,s=Y.series(),w=[[['정규 세션','대면'],2.5,s[0]],[['팀 회의','대면·비대면'],1,s[1]],[['개인 연구·신문 스크랩','비대면'],2.5,s[2]]];
       new Chart(cWeek,{type:'bar',data:{labels:w.map(x=>x[0]),datasets:[{data:w.map(x=>x[1]),backgroundColor:w.map(x=>x[2])}]},
         options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>c[0].label.replace(',',' · '),label:c=>` ${c.dataIndex===1?'최소 ':''}${c.raw}시간`}}},scales:{x:{beginAtZero:true,max:3,ticks:{stepSize:1},title:{display:true,text:'시간'}},y:{grid:{display:false}}}}})},
     topicChart(){const Y=YEEF_CHART,t=[['전력계통',7],['기후위기와 지속가능경영',6],['공급망 구축',5],['산업 공정과 기술',5],['원자력',3],['신재생에너지',2],['화석연료',2],['정책·법률·국제협약',2]];

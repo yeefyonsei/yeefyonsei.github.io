@@ -3,9 +3,9 @@
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const dark = () => document.documentElement.dataset.theme === 'dark' ||
     (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
-  // 계열색 4개 + 기타. 연두(lime)는 주황과 색각 이상에서 겹쳐 계열색으로 쓰지 않는다
-  const LIGHT = ['#1D6B54', '#B26B00', '#3A6EA5', '#8E4B7E'];
-  const DARK  = ['#8FC9B5', '#F2B865', '#8DB4E2', '#D9A3CC'];
+  // 계열색: 청록 농도 단계. 진한 색부터 쓴다
+  const LIGHT = ['#1D6B54', '#48A78F', '#8FC9B5', '#C5E2D8', '#E3F1EC'];
+  const DARK  = ['#C5E2D8', '#8FC9B5', '#48A78F', '#1D6B54', '#E3F1EC'];
   const OTHER = { light: '#B4C2BD', dark: '#4F625C' };
   window.YEEF_CHART = {
     series: () => dark() ? DARK : LIGHT,
@@ -19,7 +19,7 @@
   };
   if (!window.Chart) return;
   const C = Chart.defaults;
-  C.font.family = css('--font-en') || "'IBM Plex Sans', Pretendard, sans-serif";
+  C.font.family = css('--font-sans') || 'Pretendard, sans-serif';
   C.font.size = 13;
   C.color = css('--color-text-muted');
   C.borderColor = css('--color-border');

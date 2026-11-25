@@ -1,7 +1,7 @@
 /* Hallmark · v2.0.0 · redesign: polish · genre editorial · built: the project
    critique: YEEF 홈페이지 토큰. 색·간격·그림자를 전부 변수로 모았다
    waive 7b: 흰 면(--color-surface)은 학회 브랜드의 밝은 청록 위 흰 카드로 의도된 기본
-   waive 37: Pretendard(본문)·Wanted Sans(제목)·IBM Plex Sans(숫자·영문)·IBM Plex Mono(코드)는 역할이 다른 4서체로 유지 */
+   서체: 본문·숫자·영문은 Pretendard 하나, 제목만 Wanted Sans (11차 격발에서 IBM Plex 제거) */
 html,body{overflow-x:clip}
 :root {
   /* 1. primitive */
@@ -37,8 +37,8 @@ html,body{overflow-x:clip}
   --amber-500: #A15C00;
   --amber-300: #F2B865;
   --font-sans: 'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif;
-  --font-en: 'IBM Plex Sans', 'Pretendard', sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-en: var(--font-sans);
+  --font-mono: var(--font-sans);
   --size-xs: 12px;
   --size-sm: 14px;
   --size-base: 16px;
