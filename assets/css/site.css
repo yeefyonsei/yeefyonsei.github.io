@@ -531,9 +531,8 @@ table.tbl td:first-child{width:9em}
   .tbl--4 th:nth-child(4),.tbl--4 td:nth-child(4){display:none}
   .tbl--4 td:first-child{width:5em}.tbl--4 td:nth-child(2){width:6.5em}.tbl--4 td:nth-child(3){width:auto}
 }
-/* 13차 격발: 첫 화면 바로가기 밑줄만 처음 한 번 왼쪽에서 그어짐, 올리면 2px */
-body .hero--logo .hero__links a{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-size:0 1px;background-position:0 100%;padding-bottom:1px;animation:ul .35s ease-out forwards}
-body .hero--logo .hero__links a:nth-of-type(2){animation-delay:.15s}body .hero--logo .hero__links a:nth-of-type(3){animation-delay:.3s}body .hero--logo .hero__links a:nth-of-type(4){animation-delay:.45s}
-body .hero--logo .hero__links a:hover{animation:none;background-size:100% 2px}
-@keyframes ul{to{background-size:100% 1px}}
-@media(prefers-reduced-motion:reduce){body .hero--logo .hero__links a{background-size:100% 1px;animation:none}}
+/* 14차 격발: 첫 화면 바로가기는 일반 밑줄, 움직임 없음 */
+body .hero--logo .hero__links a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+body .hero--logo .hero__links a:hover{color:var(--color-text)}
+/* 14차 격발: 연구 분야 여덟 분야 줄은 데스크톱에서 한 줄 */
+@media(min-width:1024px){body .prose-col p.fields-line{white-space:nowrap;max-width:none;font-size:17px}}
